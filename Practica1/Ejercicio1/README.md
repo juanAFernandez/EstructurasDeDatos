@@ -1,60 +1,39 @@
-#include <iostream> // Para hacer uso de la entrada y salida
-#include <ctime>    // Recursos para medir tiempos
-#include <cstdlib>  // Para generación de números pseudoaleatorios
+Informe de Eficiencia 1
+-----------------------
 
-using namespace std;
+####Algoritmo de ordenación Burbuja
 
-//Donde
-// v -> Es el vector que vamos a ordenar
-// n -> Es el número de elementos del vector
-void ordenar (int *v, int n){
-  for(int i=0; i<n-1; i++)
-    for(int j=0; j<n-i-1; j++)
-        if (v[j]>v[j+1]){
-          int aux = v[j+1];
-          v[j]=v[j+1];
-          v[j+1]=aux;
-        }
-}
+######Hardware Usado
 
-void sintaxis()
-{
-  cerr << "Sintaxis:" << endl;
-  cerr << "  TAM: Tamaño del vector (>0)" << endl;
-  cerr << "  VMAX: Valor máximo (>0)" << endl;
-  cerr << "Se genera un vector de tamaño TAM con elementos aleatorios en [0,VMAX[" << endl;
-  exit(EXIT_FAILURE);
-}
+El equipo donde se ha realizado la compilación y ejecución del programa es un Portatil Acer Aspire 5920 con las siguientes características:
 
-int main(int argc, char * argv[])
-{
-  // Lectura de parámetros
-  if (argc!=3)
-    //Llama a sintaxis para que explique al usuario como funciona el código.
-    sintaxis();
-  int tam=atoi(argv[1]);     // Tamaño del vector
-  int vmax=atoi(argv[2]);    // Valor máximo
-  if (tam<=0 || vmax<=0)
-    sintaxis();
-  
-  // Generación del vector aleatorio
-  int *v=new int[tam];       // Reserva de memoria
-  srand(time(0));            // Inicialización del generador de números pseudoaleatorios
-  for (int i=0; i<tam; i++)  // Recorrer vector
-    v[i] = rand() % vmax;    // Generar aleatorio [0,vmax[
-  
-  clock_t tini;    // Anotamos el tiempo de inicio
-  tini=clock();
-  
-  //int x = vmax+1;  // Buscamos un valor que no está en el vector
-  //buscar(v,tam,x); // de esta forma forzamos el peor caso de que tengan que recorrerse todo el código.
-  ordenar(v, tam);
+* Procesador de doble núcleo: Intel(R) Core(TM)2 Duo CPU T5450 a 1.66GHz
+* 4GB de Ram
 
-  clock_t tfin;    // Anotamos el tiempo de finalización
-  tfin=clock();
+######Sistema Operativo
 
-  // Mostramos resultados
-  cout << tam << "\t" << (tfin-tini)/(double)CLOCKS_PER_SEC << endl;
-  
-  delete [] v;     // Liberamos memoria dinámica del vector usado.
-}
+Ubuntu 12.04.4 LTS  32 bits
+
+######Compilador utilizado y opciónes de compilación
+
+Se ha usado gcc versión 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) 
+
+
+######Desarrollo completo del cálculo de la eficiencia teórica y gráfica
+
+######Parámetros usados para el cálculo de la eficiencia empírica y gráfica
+
+######Ajuste de curva teórica a la empírica: mostrar resultados del ajuste y gráfica
+
+
+
+#####Más:
+
+En linux para conocer el modelo de nuestra CPU además de otros muchos datos de los núcleos de la misma podemos ejecutar: `cat /cpu/info` . Para conocer la versión del S.O. `cat /etc/issue` y para conocer la arquitectura (32 o 64 bits) `uname -m` donde veremos x86_64 para 64 bits e i686 para las de 32. Para conocer la versión de nuestro compilador  podemos hacer `g++ -v` .
+
+
+
+
+
+
+
