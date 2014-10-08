@@ -35,14 +35,16 @@ void ordenar(int *v, int n){
             }
 }
 ```
-Haciendo el calculo de forma simplificada y quedandonos con el orden podemos decir que este algoritmo tiene una eficiencia de 0(n^2), cuadrática, una función tal que así:
+Haciendo el calculo de forma simplificada y quedandonos con el orden podemos decir que este algoritmo tiene una eficiencia de 0(n^2), cuadrática. En la gráfica de la izquierda podemos ver la curva de n cuadrado y a la derecha los tiempos que empiricamente se han obtenido.
 
 ![Imagen 1][1]  ![Imagen 2][2]
 
  [1]: graficaxCuadrado.jpeg
  [2]: graficaSalida.jpeg 
 
-![Sin titulo](graficaDoble.jpeg)
+Si superponemos ambas gŕaficas podemos comparar la eficiencia teórica que hemos calculado que tendrá nuestro algoritmo con el resultado empírico de la ejecución
+
+![Imagen 3](graficaDoble.jpeg)
 
 ######Parámetros usados para el cálculo de la eficiencia empírica y gráfica
 
