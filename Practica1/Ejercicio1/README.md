@@ -37,9 +37,10 @@ void ordenar(int *v, int n){
 ```
 Haciendo el calculo de forma simplificada y quedandonos con el orden podemos decir que este algoritmo tiene una eficiencia de 0(n^2), cuadrática, una función tal que así:
 
-![Sin titulo](graficaxCuadrado.jpeg)
+![Imagen 1][1]  ![Imagen 2][2]
 
-![Sin titulo](graficaSalida.jpeg)
+ [1]: graficaxCuadrado.jpeg
+ [2]: graficaSalida.jpeg 
 
 ![Sin titulo](graficaDoble.jpeg)
 
