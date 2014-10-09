@@ -1,5 +1,5 @@
 
-Informe de Eficiencia 2
+Informe de Eficiencia 4
 -----------------------
 
 ###Algoritmo de ordenación Burbuja, ++Mejor y Peor Caso++
@@ -36,46 +36,27 @@ void ordenar(int *v, int n){
             }
 }
 ```
-Haciendo el calculo de forma simplificada y quedandonos con el orden podemos decir que este algoritmo tiene una eficiencia de 0(n^2), cuadrática. En la gráfica de la izquierda podemos ver la curva de n cuadrado y a la derecha los tiempos que empiricamente se han obtenido.
+Haciendo el calculo de forma simplificada y quedandonos con el orden podemos decir que este algoritmo tiene una eficiencia de 0(n^2), cuadrática.
 
-![Imagen 1][1]  ![Imagen 2][2]
+Para el cálculo de los tiempos ejecutamos el script ejecucionComparacion.sh que realiza todo el proceso para ver la comparativa. Compila las dos versiones del programa, ejecuta a su vez de forma controlada los script ejecucionesOrdenacionMejorCaso.csh y ./ejecucionesOrdenacionPeorCaso.csh que a su vez ejecutan los programas en bucle de forma controlada enviando los datos a unos ficheros .dat que luego son leidos por gnuplot mediante otro script para crear una gráfica como la que vemos abajo.
 
- [1]: graficaxCuadrado.jpeg
- [2]: graficaSalida.jpeg 
-
-Para el cálculo de los tiempos ejecutamos el script ejecuciones_ordenacion.csh que ejecuta a su vez de forma controlada el ejecutable a partir de Ejercicio1.cpp que previamente hemos compilado. Durante la ejecución del script los datos resultado del ejecutable se van escribiendo en tiempos_ordenacion.dat que después usamos con gnuplot para crear la gráfica.
-En concreto hemos usado ordenacionBurbuja.gp para que gnuplot nos cree la gráfica como nos interesa, superpuesta encima de la de n cuadrado.
+Todos los fuentes se encuentran disponibles aquí para sólo ser necesario bajarlos y ejecutar el .sh.
 
 
+![Imagen 1](graficaDoble.jpeg)
 
-Si superponemos ambas gŕaficas podemos comparar la eficiencia teórica que hemos calculado que tendrá nuestro algoritmo con el resultado empírico de la ejecución
+Si comparamos los resultados (mejor y peor caso) con los resultados obtenida en el caso medio para este algoritmo vemos que como esperábamos los resultados del caso aleatorio en la mayoría de los casos se alojan entre los peores y mejores. 
 
-![Imagen 3](graficaDoble.jpeg)
+![Imagen 2](graficaTriple.jpeg)
 
-Como vemos la eficiencia teórica calculada se ajusta bastante a la empírica, pese que al principio los resultados empíricos nos muestras un crecimiento menor al de la curva cuadrada a partir de las 20000 unidades de vector el tiempo empieza a ser distinto pero siguiendo la misma tendencia de la curva, siendo en su mayoría los tiempos superiores a los de esta.
+Vemos que conforme el número de elementos va creciendo la dispersión entre las muestras crece. Hubiera sido interesante poder ejecutar este script en un ordenador más potente y poder usar un mayor número de unidades. Aun así las diferencias son claras.
 
 
 
+La última gráfica podemos obtenerla ejecutando en gnuplot:
+```sh
+set terminal jpeg
+set output "graficaTriple.jpeg"
+plot "tiemposOrdenacionAleatoria.dat","tiemposOrdenacionMejorCaso.dat","tiemposOrdenacionPeorCaso.dat"
+```
 
-#####Detalles:
-
-En linux para conocer el modelo de nuestra CPU además de otros muchos datos de los núcleos de la misma podemos ejecutar: `cat /cpu/info` .
-
-Para conocer la versión del S.O. `cat /etc/issue` y para conocer la arquitectura (32 o 64 bits) `uname -m` donde veremos x86_64 para 64 bits ó i686 para las de 32.
-
-Para conocer la versión de nuestro compilador  podemos hacer `g++ -v` .
-
-El script que nos dan de ejemplo está escrito en C-Shell (csh), cuya sintaxis es similar a C, estos ficheros no pueden ejecutarse bajo bash (el shell por defecto de Ubuntu) y por tanto tendremos que instalarlo si queremos ejecutarlo `sudo apt-get install csh` .
-
-Para la creación de las gráficas con gnuplot usamos los script .gp asi: `gnuplot ordenacionBurbuja.gp`, que en este caso nos dejará la gráfica en jpeg donde se haya ejcutado gnuplot.
-
-
-
-
-
-
-
-
-
-
-Los tiempos de ejución para el mejor y peor caso han sido de 329 y 900 seg respectivamente, se decir responde a un crecimiento cuadrático tal que así:

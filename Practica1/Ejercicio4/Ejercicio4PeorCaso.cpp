@@ -18,10 +18,16 @@ void ordenar (int *v, int n){
   for(int i=0; i<n-1; i++)
     for(int j=0; j<n-i-1; j++)
         if (v[j]>v[j+1]){
-          int aux = v[j+1];
+          int aux = v[j];
           v[j]=v[j+1];
           v[j+1]=aux;
         }
+}
+
+void imprime (int *v, int n){
+  for(int i=0; i<n; i++)
+    cout << "[" << v[i] << "]";
+  cout << endl;
 }
 
 void sintaxis()
@@ -41,24 +47,39 @@ int main(int argc, char * argv[])
   int tam=atoi(argv[1]);     // Tamaño del vector
   if (tam<=0)
     sintaxis();
+  if (tam<=20)
+    cout << "Para tamaños <=20 el vector se imprime por pantalla:" << endl;
+
   
-  // Generación del vector ESTA VEZ DE FORMA YA ORDENADA
+  // Generación del vector totalmente desordenado
   int *v=new int[tam];       // Reserva de memoria
-  srand(time(0));            // Inicialización del generador de números pseudoaleatorios
-  for (int i=0; i<tam; i++)  // Recorrer vector
-    v[i] = i;    // Generar el vector de forma ordenada usando el índice del bucle. [0,vmax[
-  
+  srand(time(0));// Inicialización del generador de números pseudoaleatorios
+
+  int pos=0;
+  for (int i=tam-1; i>=0; i--){  // Recorrer vector
+    v[pos] = i;    // Generar el vector de forma ordenada usando el índice del bucle. [0,vmax[
+    pos++;
+  }
+
+  if(tam<=20){
+    cout << "Inicialización del vector:" << endl;
+    imprime(v,tam);
+  }
+
   clock_t tini;    // Anotamos el tiempo de inicio
   tini=clock();
   
-  //int x = vmax+1;  // Buscamos un valor que no está en el vector
-  //buscar(v,tam,x); // de esta forma forzamos el peor caso de que tengan que recorrerse todo el código.
   ordenar(v, tam);
 
   clock_t tfin;    // Anotamos el tiempo de finalización
   tfin=clock();
 
+
   // Mostramos resultados
+  if(tam<=20){
+    cout << "Vector ordenado:" << endl;
+    imprime(v, tam);
+  }
   cout << tam << "\t" << (tfin-tini)/(double)CLOCKS_PER_SEC << endl;
   
   delete [] v;     // Liberamos memoria dinámica del vector usado.

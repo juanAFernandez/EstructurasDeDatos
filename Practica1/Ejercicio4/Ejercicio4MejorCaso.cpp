@@ -18,10 +18,16 @@ void ordenar (int *v, int n){
   for(int i=0; i<n-1; i++)
     for(int j=0; j<n-i-1; j++)
         if (v[j]>v[j+1]){
-          int aux = v[j+1];
+          int aux = v[j];
           v[j]=v[j+1];
           v[j+1]=aux;
         }
+}
+
+void imprime (int *v, int n){
+  for(int i=0; i<n; i++)
+    cout << "[" << v[i] << "]";
+  cout << endl;
 }
 
 void sintaxis()
@@ -48,6 +54,11 @@ int main(int argc, char * argv[])
   for (int i=0; i<tam; i++)  // Recorrer vector
     v[i] = i;    // Generar el vector de forma ordenada usando el índice del bucle. [0,vmax[
   
+  if(tam<=20){
+    cout << "Inicialización del vector:" << endl;
+    imprime(v,tam);
+  }
+
   clock_t tini;    // Anotamos el tiempo de inicio
   tini=clock();
   
@@ -57,6 +68,11 @@ int main(int argc, char * argv[])
 
   clock_t tfin;    // Anotamos el tiempo de finalización
   tfin=clock();
+
+ if(tam<=20){
+    cout << "Vector ordenado:" << endl;
+    imprime(v, tam);
+  }
 
   // Mostramos resultados
   cout << tam << "\t" << (tfin-tini)/(double)CLOCKS_PER_SEC << endl;

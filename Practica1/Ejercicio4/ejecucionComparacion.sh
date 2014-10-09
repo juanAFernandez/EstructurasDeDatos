@@ -1,4 +1,8 @@
 #!/bin/bash
+
+g++ Ejercicio4MejorCaso.cpp -o EjercicioMejorCaso
+g++ Ejercicio4PeorCaso.cpp -o EjercicioPeorCaso
+
 echo ""
 echo "--------------------------------------------------------------------"
 echo "Comparación del mejor y peor caso en Algoritmo de Ordenación Burbuja"
