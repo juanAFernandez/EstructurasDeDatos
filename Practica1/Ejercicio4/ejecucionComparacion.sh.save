@@ -1,8 +1,0 @@
-#!/bin/bash
-echo ""
-echo "echo "--------------------------------------------------------------------"
-echo "Comparación del mejor y peor caso en Algoritmo de Ordenación Burbuja"
-echo "--------------------------------------------------------------------"
-echo ""
-echo "Cálculo de los tiempos de ejcución en el Mejor Caso"
-./ejecucionesOrdenacionMejorCaso.csh
