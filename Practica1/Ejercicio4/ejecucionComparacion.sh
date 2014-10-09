@@ -1,7 +1,7 @@
 #!/bin/bash
 
-g++ Ejercicio4MejorCaso.cpp -o EjercicioMejorCaso
-g++ Ejercicio4PeorCaso.cpp -o EjercicioPeorCaso
+g++ Ejercicio4MejorCaso.cpp -o Ejercicio4MejorCaso
+g++ Ejercicio4PeorCaso.cpp -o Ejercicio4PeorCaso
 
 echo ""
 echo "--------------------------------------------------------------------"
