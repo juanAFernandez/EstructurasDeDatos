@@ -1,4 +1,6 @@
-#Ejercicio2: Ajuste de la ordenación de la burbuja
+Informe de eficiencia 2
+========================
+###Ajuste de la ordenación de la burbuja
 
 En el ejercicio anterior vimos como obtener las gráficas tanto de la función que corresponde al orden del algoritmo como de los datos que el algoritmo generó. 
 
