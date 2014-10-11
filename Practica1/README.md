@@ -38,7 +38,15 @@ Si comparamos los resultados empíricos con los teóricos vemos que coinciden y 
 ![](graficaDoble.jpg "titulo")
 
 ####Más:
-Para
+
+En esta primera práctica realizaremos los siguientes casos:
+
+* 1.Estudio de la eficiencia del **Algoritmo de Ordenación Burbuja**.
+* 2.**Ajuste** del orden de eficiencia a los resultados del primer estudio.
+* 4.Estudio de eficiencia de Alg de **Ordenación en el Mejor y Peor caso**.
+* 6.Estudio de la influencia de la **Optimización del Compilador**.
+* 7.Eficiencia de la **Multiplicación Simple de Matrices**.
+    
 
 
 
