@@ -1,4 +1,4 @@
-#Ejercicio6: Influencia del proceso de compilación
+Influencia del proceso de compilación
 
 Vamos a retomar el ejercicio donde tratamos el algoritmo de ordenación de la burbuja. Replicando el experimento esta vez compararemos los tiempos que se obtienen aplicando la optimización de mayor nivel del compilador, -O3.
 
