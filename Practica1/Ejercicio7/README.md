@@ -47,6 +47,8 @@ Ya se puede ver que los resultados empíricos se ajustan a los teóricos, es má
 
 ![Imagen 2](graficaMultiplicacionSuperpuesta.jpeg)
 
+Pero para hacer esto mejor y no superponiendo las gráficas a mano la mejor opción es **ajustar la función del orden de eficiencia del algoritmo O(n³) a los datos contenidos en el fichero .dat ** así obtenemos la siguiente gráfica donde vemos realmente como se ajustan los datos empíricos a los teóricos.
 
+![Imagen 3](graficaAjuste.jpeg)
 
-
+La forma de realizar el ajuste con gnuplot puede verse en el fichero **ajuste.gp** y los datos de este ajuste se graban en un fichero de control fit.log

@@ -22,8 +22,9 @@ done
 T1="$(($(date +%s)-T1))"
 
 #Creación de las gráficas a partir de los resultados
-
 gnuplot graficaMultiplicacion.gp
 
+#Ajuste de la gráfica de tiempos a la gráfica de la función del orden O(n³) del algoritmo
+gnupot ajuste.gp
 
 echo "Tiempo de ejecución del análisis: ${T1} segundos."
