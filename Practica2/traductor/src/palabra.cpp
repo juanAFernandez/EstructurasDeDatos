@@ -3,60 +3,50 @@
 
 #include "palabra.h"
 
+
 using namespace std;
 
 //Constructor por defecto
 Palabra::Palabra(){};
 
-//Constructor 
-Palabra::Palabra(string palabra){
-	palabraOrigen=palabra;
-	a=5;
-}
 
-
-void Palabra::setPalabra(string palabra){
-		palabraOrigen=palabra;
-}
 
 string Palabra::getPalabraOrigen(){
+	//Devuelve la palabra en el idioma origen
 	return palabraOrigen;
 }
+vector <string> Palabra::getTraduccionesDestino(){
+	//Devuelve el vector de las traducciones	
+	return traduccionesDestino;
+}
 
-int Palabra::size(){
-	return palabraOrigen.length();
+
+int Palabra::numeroTraducciones(){
+	return traduccionesDestino.size();
 }
 
 void Palabra::load(string lineaTemporal){
-	//Proceso en el que sacamos la primera palabra y la guardamos en palabraOrigen y guardamos las otras en el vector.
-	
-	cout << "La linea es: " << lineaTemporal << endl;
-
-	/*Convertirmos el string a un vector de char
-	const char *linea;
-	linea = lineaTemporal.c_str();
+	/*Método con el que extraemos la primera palabra (hasta encontrar delimitador ;) y la guardamos en palabraOrigen
+	  para después en bucle hacer lo mismo con la siguientes e introducirlas en un vector de traduccionesDestino
 	*/
 
-
-	//2ª opción: 
+	//cout << "La linea original es: " << lineaTemporal << endl;
 
 	//Primera pasada donde seleccionamos la palabra origen #####:
 
 	//Buscamos la posición del símbolo de división --> ;
 	string simbolo=";";
 	int posSimbolo = lineaTemporal.find(simbolo);
-	cout << posSimbolo;
+	//cout << "El símbolo ; se encuentra en la posición " << posSimbolo << endl;
 
 	//Ahora copiamos ese segmento de string en el nuestro.
 	palabraOrigen=lineaTemporal.substr(0,posSimbolo);
-	cout << "Palabra origen:" << palabraOrigen << endl;
-
-	cout << "La linea sigue siendo: " << lineaTemporal << endl;
+	//cout << "Palabra origen extraida: " << palabraOrigen << endl;
 
 	//Ahora hay que quitar esa parte de la linea para repetir el proceso, para eso usamos:
 	lineaTemporal.erase(0,posSimbolo+1);
 
-	cout << "La linea queda: " << lineaTemporal << endl << endl << endl;
+	//cout << "Tras la extracción la linea queda: " << lineaTemporal << endl;
 
 
 	//Resto de n pasadas donde seleccionamos las palabras que iran en traduccionesDestino " vector<string> traduccionesDestino; "
@@ -65,31 +55,31 @@ void Palabra::load(string lineaTemporal){
 	string palabraTraducida;
 	while (fin != true){
 
-		cout << "inicio" << endl;
+		//cout << "\nInicio while" << endl;
 
 		//Sacamos la posición del símbolo ";"
 		posSimbolo=lineaTemporal.find(simbolo);
-		cout << "Posición ; =" << posSimbolo << endl;
+		//cout << "El símbolo ; se encuentra en la posición " << posSimbolo << endl;
 
 		if(posSimbolo<0)
 			fin=true;
 		
 	   if(!fin){
 	   palabraTraducida=lineaTemporal.substr(0,posSimbolo);
-	   cout << "Palabra traducida extraida " << numeroTraduccionObtenida << " : " << palabraTraducida << endl;
+	   //cout << "Palabra traducida extraida " << numeroTraduccionObtenida << " : " << palabraTraducida << endl;
 	   traduccionesDestino.push_back(palabraTraducida);
 	   lineaTemporal.erase(0,posSimbolo+1);
-	   cout << "La linea queda: " << lineaTemporal << endl;
+	   //cout << "La linea queda: " << lineaTemporal << endl;
 	   numeroTraduccionObtenida++;
 
 		}
 
-		cout << "fin" << endl;
+		//cout << "Fin while" << endl;
 
 	}
 
 
-	
+
 
 
 

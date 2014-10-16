@@ -14,8 +14,6 @@ private:
 	//Declaramos el string palabraOrigen que almacenará la palabra.
 	string palabraOrigen;
 
-	int a;
-
 	//El vector almacenará todas las posibles traducciones
 	vector<string> traduccionesDestino;
 public:
@@ -23,7 +21,7 @@ public:
 	* @brief Constructor de la clase
 	*/
 	Palabra();
-	Palabra(string palabra);
+	
 
 
 	/**
@@ -35,9 +33,13 @@ public:
 
 	string getPalabraOrigen();
 
-	int size();
+	vector <string> getTraduccionesDestino();
+
+	int numeroTraducciones();
 
 	void load(string lineaTemporal);
+
+
 
 
 	//Hacer función que sea leer linea....

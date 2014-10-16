@@ -21,7 +21,7 @@ int main(int argc, char * argv[]){
    Traductor T;
    f>>T; //Cargamos en memoria, en el traductor.
 
-   //Nuestra clase tiene que tener sobrecargado el operador >>
+   //Nuestra clase tiene que tener sobrecargado el operador >> para poder pasarle un flujo.
    
    //La abstracción es básica y por tanto la documentación tabién lo será.
 
