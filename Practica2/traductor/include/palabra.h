@@ -17,7 +17,7 @@ private:
 	int a;
 
 	//El vector almacenará todas las posibles traducciones
-	std::vector<string> traduccionesDestino;
+	vector<string> traduccionesDestino;
 public:
 	/**
 	* @brief Constructor de la clase
