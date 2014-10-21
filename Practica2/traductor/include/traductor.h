@@ -50,7 +50,7 @@ public:
 		//Hay que encontrar la palabra en el vector palabrasDisponibles
 
 		vector<string> error;
-		error.push_back("#ERROR# Palabra no encontrada en el diccionario, pruebe de nuevo.");
+		error.push_back(" ## ERROR ## Palabra no encontrada en el diccionario, pruebe de nuevo.");
 		if (posPalabra(palabra)==-1)
 			return error;
 

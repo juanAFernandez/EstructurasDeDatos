@@ -1,7 +1,7 @@
 //No se puede modificar, tiene que funcionar con los modulos que generemos
 
 //Para compilar:
-// g++ src/palabra.cpp include/traductor.h src/pruebatraductor.cpp -Iinclude -o esto ; ./esto datos/spanish_english
+// g++ src/palabra.cpp include/traductor.h src/pruebatraductor.cpp -Iinclude -o esto ; ./esto datos/spanish_englishgit
 
 //
 
