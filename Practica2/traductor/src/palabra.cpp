@@ -26,7 +26,7 @@ int Palabra::numeroTraducciones(){
 }
 
 void Palabra::load(string lineaTemporal){
-	/*Método con el que extraemos la primera palabra (hasta encontrar delimitador ;) y la guardamos en palabraOrigen
+	/*Método con el que dad una linea completa extraemos la primera palabra (hasta encontrar delimitador ;) y la guardamos en palabraOrigen
 	  para después en bucle hacer lo mismo con la siguientes e introducirlas en un vector de traduccionesDestino
 	*/
 

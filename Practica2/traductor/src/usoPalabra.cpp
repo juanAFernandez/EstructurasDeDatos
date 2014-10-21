@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream> //Para trabajar con flujos
-#include <palabra.h>
+#include "palabra.h"
 
 
 using namespace std;
@@ -32,6 +32,9 @@ int main (void){
 	cout << prueba.numeroTraducciones() << endl;
 
 	vector<string> vector=prueba.getTraduccionesDestino();
+
+
+
 
 	return 0;
 
