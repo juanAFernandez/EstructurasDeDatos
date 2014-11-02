@@ -28,8 +28,8 @@ using namespace std;
 class Palabra{
 private:
 
-	/**
-  * @page Representación del Tipo de Dato Abstracto Palabra
+  /**
+  * @page Palabra Representación del Tipo de Dato Abstracto Palabra
   *
   * @section invConjunto Invariante de la representación
   *

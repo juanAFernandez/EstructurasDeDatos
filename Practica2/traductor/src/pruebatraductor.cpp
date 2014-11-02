@@ -1,15 +1,32 @@
-//No se puede modificar, tiene que funcionar con los modulos que generemos
+/**
+  * @file pruebatraductor.cpp
+  * @brief Fichero implementación para probar el funcionamiento del T.D.A. traductor.
+  *
+ */
 
-//Para compilar:
-// g++ src/palabra.cpp include/traductor.h src/pruebatraductor.cpp -Iinclude -o esto ; ./esto datos/spanish_englishgit
 
-//
+/*! \mainpage Documentación 
+ *
+ * \section intro_sec Introducción
+ *
+ * This is the introduction.
+ *
+ * \section install_sec Instalación
+ *
+ * \subsection step1 Paso 1: Opening the box
+ *
+ * \section uso_sec Uso
+ *  
+ * Para usar
+ */
 
 #include "traductor.h"
 #include <fstream>
 #include <iostream>
 using namespace std;
 int main(int argc, char * argv[]){
+
+
 
   if (argc!=2){
       cout<<"Dime el nombre del fichero con las traducciones"<<endl;

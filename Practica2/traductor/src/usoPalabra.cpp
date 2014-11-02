@@ -1,3 +1,8 @@
+/**
+  * @file usoPalabra.cpp
+  * @brief Fichero implementación para probar el funcionamiento de objetos palabra.
+  *
+ */
 #include <iostream>
 #include <fstream> //Para trabajar con flujos
 #include "palabra.h"

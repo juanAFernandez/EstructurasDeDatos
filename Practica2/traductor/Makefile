@@ -33,7 +33,8 @@ $(OBJ)/usoPalabra.o : $(SRC)/usoPalabra.cpp
 
 # ************ Generación de documentación ******************
 #documentacion:
-#	doxygen doc/doxygen/configuracionDoxygen
+documentacion : 
+	doxygen doc/doxygen/configuracionDoxygen
 
 
 # ************ Limpieza ************

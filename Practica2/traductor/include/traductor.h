@@ -32,6 +32,21 @@ using namespace std;
 
 class Traductor{
 
+	/**
+  	* @page Traductor Representación del Tipo de Dato Abstracto Traductor
+  	*
+  	* @section invConjunto Invariante de la representación
+  	*
+  	* El invariante es \e rep.den!=0
+  	*
+  	* @section faConjunto Función de abstracción
+  	*	
+  	* Un objeto válido @e rep del TDA Racional representa al valor
+  	*
+	* (rep.num,rep.den)
+  	*
+  	*/
+
 	private:
 
 		vector<Palabra>palabrasDisponibles; /**< vector de palabras disponibles por el traductor */

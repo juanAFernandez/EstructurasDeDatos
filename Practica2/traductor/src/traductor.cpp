@@ -1,6 +1,6 @@
 /**
   * @file traductor.cpp
-  * @brief Fichero implementación del T.D.A. traductor
+  * @brief Fichero implementación de los métodos de la clase traductor.
   *
  */
 

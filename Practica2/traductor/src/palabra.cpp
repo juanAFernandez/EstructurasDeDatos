@@ -1,3 +1,9 @@
+/**
+  * @file palabra.cpp
+  * @brief Fichero implementación de los métodos de la clase palabra.
+  *
+ */
+
 #include <iostream>
 #include <string>
 
