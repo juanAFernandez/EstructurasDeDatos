@@ -37,13 +37,13 @@ class Traductor{
   	*
   	* @section invConjunto Invariante de la representación
   	*
-  	* El invariante es \e rep.den!=0
+  	* El invariante es \e rep.palabrasDisponibles!=0
   	*
   	* @section faConjunto Función de abstracción
   	*	
-  	* Un objeto válido @e rep del TDA Racional representa al valor
+  	* Un objeto válido @e rep del TDA Traductor representa al valor
   	*
-	* (rep.num,rep.den)
+	* (palabrasDisponibles=[0..n])
   	*
   	*/
 

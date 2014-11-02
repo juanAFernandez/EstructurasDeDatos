@@ -113,7 +113,67 @@ Amigas</h2></td></tr>
 <div class="textblock"><p>T.D.A. traductor. </p>
 <p>Una instancia de este tipo de dato es un traductor que contiene una lista de objetos del tipo palabra que incluyen tanto la palabra origen como las traducciones.</p>
 <p>Un ejemplo de su uso: </p>
-<div class="fragment"><pre class="fragment"></pre></div><dl class="author"><dt><b>Autor:</b></dt><dd>Juan Antonio Fernández Sánchez </dd></dl>
+<div class="fragment"><pre class="fragment">
+<span class="comment">//Fichero de prueba del T.D.A. Traductor</span>
+<span class="preprocessor">#include &quot;<a class="code" href="traductor_8h.html" title="Fichero cabecera del T.D.A. traductor.">traductor.h</a>&quot;</span>
+<span class="preprocessor">#include &lt;fstream&gt;</span>
+<span class="preprocessor">#include &lt;iostream&gt;</span>
+<span class="keyword">using namespace </span>std;
+
+<span class="keywordtype">int</span> <a class="code" href="pruebatraductor_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función principal del programa.">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> * argv[]){
+
+
+
+  <span class="keywordflow">if</span> (argc!=2){
+      cout&lt;&lt;<span class="stringliteral">&quot;Dime el nombre del fichero con las traducciones&quot;</span>&lt;&lt;endl;
+      <span class="keywordflow">return</span> 0;
+   }
+
+   ifstream f (argv[1]);
+   <span class="keywordflow">if</span> (!f){
+    cout&lt;&lt;<span class="stringliteral">&quot;No puedo abrir el fichero &quot;</span>&lt;&lt;argv[1]&lt;&lt;endl;
+    <span class="keywordflow">return</span> 0;
+   }
+   
+   <span class="comment">//Se declara el traductor.</span>
+   <a class="code" href="class_traductor.html" title="T.D.A. traductor.">Traductor</a> T;
+
+
+   cout &lt;&lt; <span class="stringliteral">&quot;### Cargando traductor ###&quot;</span>&lt;&lt; endl;
+
+   f&gt;&gt;T; <span class="comment">//Cargamos en memoria, en el traductor.</span>
+
+   <span class="keywordflow">while</span>(<span class="keyword">true</span>){
+
+   <span class="keywordtype">string</span> a;
+   cout&lt;&lt;<span class="stringliteral">&quot;Dime una palabra en el idioma origen (q para salir): &quot;</span>;
+   getline(cin,a);
+   
+   <span class="keywordflow">if</span>(a.compare(<span class="stringliteral">&quot;q&quot;</span>)==0){
+    cout &lt;&lt; <span class="stringliteral">&quot;bye! &quot;</span>&lt;&lt; endl;
+    <span class="keywordflow">return</span> 0;
+   }
+
+   vector&lt;string&gt; trads=T.getTraducciones(a);
+   
+   <span class="comment">//Mostramos las palabras destino</span>
+   
+   cout&lt;&lt;a&lt;&lt;<span class="stringliteral">&quot;--&gt; &quot;</span>;
+   <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0;i&lt;trads.size(); ++i){
+     cout&lt;&lt;trads[i];
+     <span class="keywordflow">if</span>(i&lt;trads.size()-1)
+      cout &lt;&lt; <span class="stringliteral">&quot;; &quot;</span>;
+   }
+
+   cout&lt;&lt;endl;
+   
+   
+   }
+
+
+
+}
+</pre></div><dl class="author"><dt><b>Autor:</b></dt><dd>Juan Antonio Fernández Sánchez </dd></dl>
 <dl class="date"><dt><b>Fecha:</b></dt><dd>Octubre 2014 </dd></dl>
 
 <p>Definición en la línea <a class="el" href="traductor_8h_source.html#l00033">33</a> del archivo <a class="el" href="traductor_8h_source.html">traductor.h</a>.</p>
@@ -257,7 +317,7 @@ Amigas</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definición en la línea <a class="el" href="traductor_8cpp_source.html#l00076">76</a> del archivo <a class="el" href="traductor_8cpp_source.html">traductor.cpp</a>.</p>
+<p>Definición en la línea <a class="el" href="traductor_8cpp_source.html#l00072">72</a> del archivo <a class="el" href="traductor_8cpp_source.html">traductor.cpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +343,7 @@ Amigas</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generado el Domingo, 2 de Noviembre de 2014 22:45:31 para Traductor por &#160;<a href="http://www.doxygen.org/index.html">
+Generado el Domingo, 2 de Noviembre de 2014 23:30:30 para Traductor por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

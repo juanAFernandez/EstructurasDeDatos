@@ -33,13 +33,13 @@ private:
   *
   * @section invConjunto Invariante de la representación
   *
-  * El invariante es \e rep.den!=0
+  * El invariante es \e rep.traduccionesDestino!=0
   *
   * @section faConjunto Función de abstracción
   *
-  * Un objeto válido @e rep del TDA Racional representa al valor
+  * Un objeto válido @e rep del TDA Palabra representa al valor
   *
-  * (rep.num,rep.den)
+  * (palabraIdiomaOrigen,palabraIdiomaDestino_0, ... , palabraIdiomaDestino_n)
   *
   */
 

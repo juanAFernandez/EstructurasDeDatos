@@ -4,7 +4,6 @@
   *
  */
 
-
 /*! \mainpage Documentación 
  *
  * \section intro_sec Introducción
@@ -13,17 +12,38 @@
  *
  * \section install_sec Instalación
  *
- * \subsection step1 Paso 1: Opening the box
+ * \subsection step1 Paso 1: Descargar el código
+ *
+ * Se puede descargar desde https://github.com/juanAFernandez/EstructurasDeDatos/tree/master/Practica2/traductor
+ *
+ * \subsection step2 Paso 2: Ejecutar make
+ *
+ * Para que todo compile sólo tenemos que ejecutar make en la carpeta principal donde estan las carpetas.
+ *
+ * \subsection step3 Paso 3: Lanzar la documentación
+ *
+ * Para crear la documentación sólo hacemos make documentacion y tendremos el index.html en docs
  *
  * \section uso_sec Uso
  *  
- * Para usar
+ * Para usar el programa sólo tenemos que ejecutarlo indicándole el diccionario a usar: 
+ * ./bin/pruebatraductor datos/spanish_english  
+ * Estos diccionarios lo tenemos disponibles en la carpeta datos.
+ *
+ * \section colaboracion Colaboración
+ *
+ * Para proponer cualquier mejora en el código o aportar alguna correción sería interesante hacer fork en GitHub.
  */
 
+//Fichero de prueba del T.D.A. Traductor
 #include "traductor.h"
 #include <fstream>
 #include <iostream>
 using namespace std;
+
+/**
+* @brief Función principal del programa.
+*/
 int main(int argc, char * argv[]){
 
 
@@ -39,31 +59,13 @@ int main(int argc, char * argv[]){
     return 0;
    }
    
-   //Se define el traductor.
+   //Se declara el traductor.
    Traductor T;
 
-   //Palabra prueba;
-
-   /*
-   Si hacer c=a+b es lo mismo que hacer c=operator+(a,b);
-   f>>T es lo mismo que hacer operator>>(f,T) donde f es un objeto ifstream y T uno traductor.
-   */
 
    cout << "### Cargando traductor ###"<< endl;
 
    f>>T; //Cargamos en memoria, en el traductor.
-
-   //Nuestra clase tiene que tener sobrecargado el operador >> para poder pasarle un flujo.
-   
-
-
-
-
-
-
-   //La abstracción es básica y por tanto la documentación será imprescindible.
-
-
 
    while(true){
 

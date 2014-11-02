@@ -113,7 +113,55 @@ Métodos públicos</h2></td></tr>
 <div class="textblock"><p>T.D.A. palabra. </p>
 <p>Una instancia del tipo de dato abstracto palabra es un objeto compuesto por las traducciones en un determinado idioma de una palabra origen. Esta tipo de dato incluye tanto la palabra en el idioma origen como las traducciones en el idioma destino.</p>
 <p>Un ejemplo de su uso: </p>
-<div class="fragment"><pre class="fragment"></pre></div><dl class="author"><dt><b>Autor:</b></dt><dd>Juan Antonio Fernández Sánchez </dd></dl>
+<div class="fragment"><pre class="fragment">
+<span class="preprocessor">#include &lt;iostream&gt;</span>
+<span class="preprocessor">#include &lt;fstream&gt;</span> <span class="comment">//Para trabajar con flujos</span>
+<span class="preprocessor">#include &quot;<a class="code" href="palabra_8h.html" title="Fichero cabecera del T.D.A. palabra.">palabra.h</a>&quot;</span>
+
+
+<span class="keyword">using namespace </span>std;
+
+<span class="keywordtype">int</span> <a class="code" href="pruebatraductor_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Función principal del programa.">main</a> (<span class="keywordtype">void</span>){
+
+        <span class="comment">//cout &lt;&lt; &quot;usoPalabra&quot; &lt;&lt; endl;</span>
+
+        <span class="comment">//Código en el que vamos a probar la clase palabra y sus métodos</span>
+
+        <a class="code" href="class_palabra.html" title="T.D.A. palabra.">Palabra</a> prueba;
+
+        <span class="comment">//Palabra prueba2;</span>
+
+
+        <span class="comment">//Abrimos el fichero:</span>
+        ifstream flujoEntrada;
+        flujoEntrada.open (<span class="stringliteral">&quot;file.txt&quot;</span>, std::ifstream::in);
+
+        <span class="comment">//Extraemos la linea y la guardamos en un string temporal:</span>
+        <span class="keywordtype">string</span> lineaTemporal;
+        getline(flujoEntrada,lineaTemporal);
+
+        <span class="comment">//Cargamos esa linea en una instancia de palabra</span>
+        prueba.<a class="code" href="class_palabra.html#afb7bd4c427f142a851bf306ddc8e991c" title="Método que desde un string y bajo un determinado formato extrae de este la palabra origen y las desti...">load</a>(lineaTemporal);
+
+        cout &lt;&lt; prueba.<a class="code" href="class_palabra.html#a592db4c77b00c459bfd28902e5858127" title="Extrae la palabra origen del T.D.A.">getPalabraOrigen</a>() &lt;&lt; endl;
+        
+        cout &lt;&lt; prueba.<a class="code" href="class_palabra.html#a149a486365a570277dcbe7ec677d03a4" title="Para consultar el número de traducciones que tiene una palabras.">numeroTraducciones</a>() &lt;&lt; endl;
+
+        vector&lt;string&gt; vector=prueba.<a class="code" href="class_palabra.html#a73d00ee2958664173d9065aeac6d89cf" title="Para extraer las traducciones de la palabra origen.">getTraduccionesDestino</a>();
+
+
+
+
+        <span class="keywordflow">return</span> 0;
+
+        <span class="comment">/*</span>
+<span class="comment">        Una forma sencilla de poder ejecutar el código compilando y enlazando los tres ficheros:</span>
+<span class="comment">        g++ src/usoPalabra.cpp src/palabra.cpp -Iinclude -o bin/usoPalabra ; ./bin/usoPalabra </span>
+<span class="comment"></span>
+<span class="comment">        */</span>
+
+}
+</pre></div><dl class="author"><dt><b>Autor:</b></dt><dd>Juan Antonio Fernández Sánchez </dd></dl>
 <dl class="date"><dt><b>Fecha:</b></dt><dd>Octubre 2014 </dd></dl>
 
 <p>Definición en la línea <a class="el" href="palabra_8h_source.html#l00028">28</a> del archivo <a class="el" href="palabra_8h_source.html">palabra.h</a>.</p>
@@ -135,7 +183,7 @@ Métodos públicos</h2></td></tr>
 <p>Extrae la palabra origen del T.D.A. </p>
 <dl class="return"><dt><b>Devuelve:</b></dt><dd>Devuelve la palabra origen del T.D.A. </dd></dl>
 
-<p>Definición en la línea <a class="el" href="palabra_8cpp_source.html#l00020">20</a> del archivo <a class="el" href="palabra_8cpp_source.html">palabra.cpp</a>.</p>
+<p>Definición en la línea <a class="el" href="palabra_8cpp_source.html#l00017">17</a> del archivo <a class="el" href="palabra_8cpp_source.html">palabra.cpp</a>.</p>
 
 </div>
 </div>
@@ -156,7 +204,7 @@ Métodos públicos</h2></td></tr>
 <p>Para extraer las traducciones de la palabra origen. </p>
 <dl class="return"><dt><b>Devuelve:</b></dt><dd>Devuelve un vector de string que contiene las traducciones. </dd></dl>
 
-<p>Definición en la línea <a class="el" href="palabra_8cpp_source.html#l00024">24</a> del archivo <a class="el" href="palabra_8cpp_source.html">palabra.cpp</a>.</p>
+<p>Definición en la línea <a class="el" href="palabra_8cpp_source.html#l00021">21</a> del archivo <a class="el" href="palabra_8cpp_source.html">palabra.cpp</a>.</p>
 
 </div>
 </div>
@@ -178,7 +226,7 @@ Métodos públicos</h2></td></tr>
 <p>Método que desde un string y bajo un determinado formato extrae de este la palabra origen y las destino almacenandolas correctamente. </p>
 <dl class="pre"><dt><b>Precondición:</b></dt><dd>La cadena string debe tener contenido y en el formato especificado para que el método funcione correctamente. </dd></dl>
 
-<p>Definición en la línea <a class="el" href="palabra_8cpp_source.html#l00034">34</a> del archivo <a class="el" href="palabra_8cpp_source.html">palabra.cpp</a>.</p>
+<p>Definición en la línea <a class="el" href="palabra_8cpp_source.html#l00031">31</a> del archivo <a class="el" href="palabra_8cpp_source.html">palabra.cpp</a>.</p>
 
 </div>
 </div>
@@ -199,7 +247,7 @@ Métodos públicos</h2></td></tr>
 <p>Para consultar el número de traducciones que tiene una palabras. </p>
 <dl class="return"><dt><b>Devuelve:</b></dt><dd>Devuelve el tamaño (número de palabras) del vector trducciones destino. </dd></dl>
 
-<p>Definición en la línea <a class="el" href="palabra_8cpp_source.html#l00030">30</a> del archivo <a class="el" href="palabra_8cpp_source.html">palabra.cpp</a>.</p>
+<p>Definición en la línea <a class="el" href="palabra_8cpp_source.html#l00027">27</a> del archivo <a class="el" href="palabra_8cpp_source.html">palabra.cpp</a>.</p>
 
 </div>
 </div>
@@ -251,7 +299,7 @@ Métodos públicos</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generado el Domingo, 2 de Noviembre de 2014 22:45:31 para Traductor por &#160;<a href="http://www.doxygen.org/index.html">
+Generado el Domingo, 2 de Noviembre de 2014 23:30:30 para Traductor por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

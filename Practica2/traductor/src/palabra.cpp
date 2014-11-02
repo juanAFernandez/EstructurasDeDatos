@@ -6,10 +6,7 @@
 
 #include <iostream>
 #include <string>
-
 #include "palabra.h"
-
-
 using namespace std;
 
 //Constructor por defecto

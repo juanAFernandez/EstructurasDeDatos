@@ -1,6 +1,6 @@
 /**
   * @file traductor.cpp
-  * @brief Fichero implementación de los métodos de la clase traductor.
+  * @brief Fichero implementación de los métodos de la clase traductor
   *
  */
 
@@ -65,11 +65,7 @@ void Traductor::loadTraducciones(istream &flujo){
 
 			cout << "Cargadas: " << getNumeroPalabras() << " palabras. " << endl;
 
-			//Sacando una:
 
-			//cout << "Nº de traducciones: " << palabrasDisponibles[5].numeroTraducciones() << endl;
-
-			//TRABAJAR AQUÍ
 }
 
 //Implementación de la sobrecarga del operador >>

@@ -10,6 +10,9 @@
 
 using namespace std;
 
+/**
+* @brief Función principal del programa.
+*/
 int main (void){
 
 	//cout << "usoPalabra" << endl;
