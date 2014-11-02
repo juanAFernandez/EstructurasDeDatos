@@ -63,9 +63,13 @@ int main(int argc, char * argv[]){
    
    //Mostramos las palabras destino
    
-   cout<<a<<"-->";
-   for (int i=0;i<trads.size(); ++i)
-     cout<<trads[i]<<' ';
+   cout<<a<<"--> ";
+   for (unsigned int i=0;i<trads.size(); ++i){
+     cout<<trads[i];
+     if(i<trads.size()-1)
+      cout << "; ";
+   }
+
    cout<<endl;
    
    

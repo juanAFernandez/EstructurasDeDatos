@@ -6,12 +6,11 @@ BIN = bin
 CXX = g++
 CPPFLAGS = -Wall -g -c 
 
-
 all: $(BIN)/pruebatraductor
 $(BIN)/pruebatraductor : $(OBJ)/pruebatraductor.o $(LIB)/libtraductor.a
 	$(CXX) -o $(BIN)/pruebatraductor $(OBJ)/pruebatraductor.o -I$(INCLUDE) -L$(LIB) -ltraductor
 
-#Construcción de la librería de los objetos
+#Construcción de la librería. Se reunen bajo un mismo nombre los ficheros objetos ya compilados.
 $(LIB)/libtraductor.a : $(OBJ)/palabra.o $(OBJ)/traductor.o
 	ar rvs $(LIB)/libtraductor.a $(OBJ)/palabra.o $(OBJ)/traductor.o
 
@@ -35,10 +34,6 @@ $(OBJ)/usoPalabra.o : $(SRC)/usoPalabra.cpp
 # ************ Generación de documentación ******************
 #documentacion:
 #	doxygen doc/doxygen/configuracionDoxygen
-
-	
-# ************ Compilación de módulos ************
-$(BIN)/pruebatraductor:
 
 
 # ************ Limpieza ************
