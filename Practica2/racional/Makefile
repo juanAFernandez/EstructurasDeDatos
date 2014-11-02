@@ -17,6 +17,8 @@ $(OBJ)/Racional.o : $(SRC)/Racional.cpp
 
 $(OBJ)/usoRacional.o : $(SRC)/usoRacional.cpp
 	$(CXX) $(CPPFLAGS)  -o $(OBJ)/usoRacional.o $(SRC)/usoRacional.cpp -I$(INCLUDE)
+
+	
  #************ Generación de documentación ******************
 documentacion:
 	doxygen doc/doxys/Doxyfile

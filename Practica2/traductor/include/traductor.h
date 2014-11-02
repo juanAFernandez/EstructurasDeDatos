@@ -1,133 +1,77 @@
+/**
+  * @file traductor.h
+  * @brief Fichero cabecera del T.D.A. traductor
+  *
+  */
 #ifndef __TRADUCTOR
 #define __TRADUCTOR
 
 #include <iostream>
+//Para trabajar con el tipo de dato vector de la STL
 #include <vector>
-#include <fstream> //Para trabajar con flujos
-#include "palabra.h" //Para usar el tipo de datos creado por nosotros palabra.
+//Para trabajar con flujos
+#include <fstream>
+//Para usar el tipo de dato abstracto palabra creado por nosotros. 
+#include "palabra.h" 
+
 using namespace std;
+
+/**
+  *  @brief T.D.A. traductor
+  *
+  * Una instancia de este tipo de dato es un traductor que contiene una lista de objetos
+  * del tipo palabra que incluyen tanto la palabra origen como las traducciones.
+  *
+  * Un ejemplo de su uso:
+  * @include pruebatraductor.cpp
+  *
+  * @author Juan Antonio Fernández Sánchez
+  * @date Octubre 2014
+  */	
 
 
 class Traductor{
 
-private:
+	private:
 
-	/*Un traductor tiene un vector lleno de palabras (que a su vez es una estructura que 
-	incluye una palabra y sus traducciones)
-	*/
-	vector<Palabra>palabrasDisponibles;
+		vector<Palabra>palabrasDisponibles; /**< vector de palabras disponibles por el traductor */
 
+	public:	
 
-public:
+		/**
+		* @brief Para conocer la posición de una palabra en el vector de palabras
+		* @param palabra La palabra a localizar en el traductor para saber si está disponible
+		* @return Devuelva la posición de la palabra pasada en el vector
+		*/
+		int posPalabra(string palabra);
 
-	//Ahora se supone que traductor debe poder recibir el control sobre unflujo de datos que sea el abrir 
-	//un fichero de texto y cargar en un vector todas las palabras (tipo de datos nuevo que incluye las traducciones).
+		/**
+		* @brief Para conocer el número de palabras cargadas por el traductor.
+		* @return Devuelve el número de palabras del que el traductor dispone.
+		*/
+		int getNumeroPalabras();
 
-	int posPalabra(string palabra){
-
-		int posPalabra=-1;
-		for(int i=0; i<palabrasDisponibles.size(); i++){
-			//Comparamos dos string
-
-			if( palabra.compare(palabrasDisponibles[i].getPalabraOrigen())==0 )
-				posPalabra=i;
-
-		}
-
-		//cout << "La posición de la palabra ha sido: " << posPalabra << endl;
-
-		//Si devuelve -1 significará que la palabra no ha sido encontrada (no existe) en el diccionario.
-		return posPalabra;
-	}
-
-	int getNumeroPalabras(){
-		return palabrasDisponibles.size();
-	}
-
-	//Función que dada una palabra nos devuelve un vector de string con las traducciones.
-	vector<string> getTraducciones(string palabra){
-
-		//Hay que encontrar la palabra en el vector palabrasDisponibles
-
-		vector<string> error;
-		error.push_back(" ## ERROR ## Palabra no encontrada en el diccionario, pruebe de nuevo.");
-		if (posPalabra(palabra)==-1)
-			return error;
-
-		return palabrasDisponibles[posPalabra(palabra)].getTraduccionesDestino();
-
-	}
+		/**
+		* @brief Para obtener las traducciones disponibles a una palabra pasada.
+		* @param palabra La palabra de la que se quieren obtener las traducciones
+		* @return Devuelve un vector de string con las traducciones de esa palabra
+		*/
+		vector<string> getTraducciones(string palabra);
 
 
+		/**
+		* @brief Esta función recorrerá el fichero y cargará todas las palabras (origen y destinos) en nuestro vector de palabras disponibles
+		* @param flujo Este parámetro es el flujo de datos abierto sobre el fichero que contiene las traducciones para que esta función trabaje con el.
+		*/
+		void loadTraducciones(istream &flujo);
 
-	//Esta función recorrerá el fichero y cargará todas las palabras (origen y destinos) en nuestro vector de palabras disponibles
-	void loadTraducciones(istream &flujo){
-
-			//Tenemos el flujo aquí, entonces trabajamos con el:
-			string lineaTemporal;
-			
-			
-			
-			/*Introducción de las palabras en el vector "palabrasDisponibles" mediante un bucle
-			while que usa la función flujo.good() para parar.
-			*/
-
-			while(flujo.good()){
-			Palabra tmp;
-			getline(flujo,lineaTemporal);
-			tmp.load(lineaTemporal);
-			palabrasDisponibles.push_back(tmp);
-
-			//Descomentar para ver como se van cargando las lineas.
-			//cout << lineaTemporal << endl;
-
-			}
-
-			cout << "Cargadas: " << getNumeroPalabras() << " palabras. " << endl;
-
-			//Sacando una:
-
-			//cout << "Nº de traducciones: " << palabrasDisponibles[5].numeroTraducciones() << endl;
-
-			//TRABAJAR AQUÍ
-
-	}
+		/**
+		* @brief Sobrecarga del operador >>
+		* @param entrada El flujo abierto sobre el fichero que contiene las traducciones.
+		* @param t Objeto de tipo traductor que recoge el control de del flujo sobre un objeto de tipo traductor para que una función trabaje con el
+		*/
+		friend istream& operator>> (istream& entrada, Traductor& t);
 
 
-
-	//Sobrecarga del opeardor >> istream (input stream)
-
-
-	friend istream & operator>> (istream & entrada, Traductor & t){
-
-		//Si ya tenemos el flujo abierto, usémoslo!!! además ya ha sido abierto el fichero.
-
-      //Cogemos el flujo y hacemos algo en el objeto t.
-		//string lineaTemporal;
-		//getline(entrada,lineaTemporal);
-
-		t.loadTraducciones(entrada);
-
-		//TRABAJAR AQUÍ, DONDE SE DEBERÍA LLAMAR A loadTraducciones.
-
-		//TAMBIÉN HAY QUE SOBRECARGAR EL OPERADOR DE ENTRADA DE PALABRA!!!!!!
-
-		return entrada;
-
-	} 
-
-	//Cuando introduzcamos una palabra el traductor debe de devolvernos todas las traducciones.
-	
-	//vector<string> getTraducciones(string palabra);
 };
-
-
-	
-
-
-
-
-
-
-
 #endif

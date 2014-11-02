@@ -1,33 +1,40 @@
+INCLUDE = include
+LIB     = lib
+OBJ     = obj
 SRC = src
-INC = include
-OBJ = obj
 BIN = bin
 CXX = g++
-CPPFLAGS = -Wall -g  -I$(INC) -c
+CPPFLAGS = -Wall -g -c 
 
 
 all: $(BIN)/pruebatraductor
-$(BIN)/usoRacional : $(OBJ)/usoRacional.o $(LIB)/libracional.a
-	$(CXX) -o $(BIN)/usoRacional $(OBJ)/usoRacional.o -I$(INCLUDE) -L$(LIB) -lracional
+$(BIN)/pruebatraductor : $(OBJ)/pruebatraductor.o $(LIB)/libtraductor.a
+	$(CXX) -o $(BIN)/pruebatraductor $(OBJ)/pruebatraductor.o -I$(INCLUDE) -L$(LIB) -ltraductor
 
-$(LIB)/libracional.a : $(OBJ)/Racional.o
-	ar rvs $(LIB)/libracional.a $(OBJ)/Racional.o
+#Construcción de la librería de los objetos
+$(LIB)/libtraductor.a : $(OBJ)/palabra.o $(OBJ)/traductor.o
+	ar rvs $(LIB)/libtraductor.a $(OBJ)/palabra.o $(OBJ)/traductor.o
 
 #Construcción del fichero objeto palabra.
 $(OBJ)/palabra.o : $(SRC)/palabra.cpp
 	$(CXX) $(CPPFLAGS)  -o $(OBJ)/palabra.o $(SRC)/palabra.cpp -I$(INCLUDE)
 
-#Construcción del fichero objeto traductor.
-$(OBJ)/traductor.o : $(SRC)/traductor.h
-	$(CXX) $(CPPFLAGS)  -o $(OBJ)/palabra.o $(SRC)/palabra.cpp -I$(INCLUDE)
+#Construcción del objeto traductor
+$(OBJ)/traductor.o : $(SRC)/traductor.cpp
+	$(CXX) $(CPPFLAGS)  -o $(OBJ)/traductor.o $(SRC)/traductor.cpp -I$(INCLUDE)
 
-$(OBJ)/usoRacional.o : $(SRC)/usoRacional.cpp
-	$(CXX) $(CPPFLAGS)  -o $(OBJ)/usoRacional.o $(SRC)/usoRacional.cpp -I$(INCLUDE)
+#Construcción del objeto pruebatraductor.cpp
+$(OBJ)/pruebatraductor.o : $(SRC)/pruebatraductor.cpp
+	$(CXX) $(CPPFLAGS)  -o $(OBJ)/pruebatraductor.o $(SRC)/pruebatraductor.cpp -I$(INCLUDE)
+
+#Construcción del objeto usoPalabra.cpp
+$(OBJ)/usoPalabra.o : $(SRC)/usoPalabra.cpp
+	$(CXX) $(CPPFLAGS)  -o $(OBJ)/usoPalabra.o $(SRC)/usoPalabra.cpp -I$(INCLUDE)
 
 
 # ************ Generación de documentación ******************
 #documentacion:
-#	doxygen doc/doxys/Doxyfile
+#	doxygen doc/doxygen/configuracionDoxygen
 
 	
 # ************ Compilación de módulos ************

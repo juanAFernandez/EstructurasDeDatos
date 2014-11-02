@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/csh
 @ inicio = 100
-@ fin = 30000
-@ incremento = 500
+@ fin = 50000
+@ incremento = 100
 set ejecutable = Ejercicio1
 set salida = tiempos_ordenacion.dat
 

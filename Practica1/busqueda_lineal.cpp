@@ -1,9 +1,13 @@
-#include <iostream>
+#include <iostream> // Para hacer uso de la entrada y salida
 #include <ctime>    // Recursos para medir tiempos
 #include <cstdlib>  // Para generación de números pseudoaleatorios
 
 using namespace std;
 
+//Donde
+// v -> Es el vector donde vamos a realizar la búsqueda
+// n -> Es el número de elementos del vector
+// x -> Es el elemento a buscar en el vector (que no encontrará pues no se encuentra en el)
 int buscar(const int *v, int n, int x)
 {
   int i=0;
@@ -28,6 +32,7 @@ int main(int argc, char * argv[])
 {
   // Lectura de parámetros
   if (argc!=3)
+    //Llama a sintaxis para que explique al usuario como funciona el código.
     sintaxis();
   int tam=atoi(argv[1]);     // Tamaño del vector
   int vmax=atoi(argv[2]);    // Valor máximo
@@ -44,7 +49,7 @@ int main(int argc, char * argv[])
   tini=clock();
   
   int x = vmax+1;  // Buscamos un valor que no está en el vector
-  buscar(v,tam,x); // de esta forma forzamos el peor caso
+  buscar(v,tam,x); // de esta forma forzamos el peor caso de que tengan que recorrerse todo el código.
   
   clock_t tfin;    // Anotamos el tiempo de finalización
   tfin=clock();
@@ -52,5 +57,5 @@ int main(int argc, char * argv[])
   // Mostramos resultados
   cout << tam << "\t" << (tfin-tini)/(double)CLOCKS_PER_SEC << endl;
   
-  delete [] v;     // Liberamos memoria dinámica
+  delete [] v;     // Liberamos memoria dinámica del vector usado.
 }
