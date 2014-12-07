@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#Compilación del fuente
+g++ ordenacionBurbuja.cpp -o ordenacionBurbuja
+#Compilación del mismo fuente con la optimización del compilador
+g++ -O3 ordenacionBurbuja.cpp -o ordenacionBurbujaOptimizado
+
+#Ejecución del programa en bucle
+
+#Inicialización de las variables necesarias
+let INICIO=100
+let FIN=30000
+let INCREMENTO=500
+let RANDOM_MAXIMO=10
+
+#Ejecución del bucle de ejecución con análisis de tiempo total de ejecuciones
+T1="$(date +%s)"
+let I=$INICIO
+while [ $I -le $FIN ]; do
+	echo Matriz de tamaño: $I
+	./ordenacionBurbuja $I $RANDOM_MAXIMO >> tiemposOrdenacionSinOptimizacion.dat
+	let I=I+INCREMENTO
+done
+T1="$(($(date +%s)-T1))"
+
+#Ejecución del bucle de ejecución con análisis de tiempo total de ejecuciones
+T2="$(date +%s)"
+let I=$INICIO
+while [ $I -le $FIN ]; do
+        echo Matriz de tamaño: $I
+        ./ordenacionBurbujaOptimizado $I $RANDOM_MAXIMO >> tiemposOrdenacionConTamañOptimizacion.dat
+        let I=I+INCREMENTO
+done
+T2="$(($(date +%s)-T2))"
+
+
+#Creación de las gráficas a partir de los resultados
+
+gnuplot graficaMultiplicacion.gp
+
+
+echo "Tiempo de ejecución del análisis: ${T1} segundos."
