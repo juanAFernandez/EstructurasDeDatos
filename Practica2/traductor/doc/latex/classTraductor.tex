@@ -1,0 +1,261 @@
+\section{Referencia de la Clase Traductor}
+\label{classTraductor}\index{Traductor@{Traductor}}
+
+
+T.\-D.\-A. \doxyref{Traductor}{p.}{classTraductor}.  
+
+
+
+
+{\ttfamily \#include $<$Traductor.\-h$>$}
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Traductor} ()\label{classTraductor_a9723a49b5b82689bff2b827ca2da3f45}
+
+\begin{DoxyCompactList}\small\item\em Constructor por defecto de la clase. Prepara las variables, el puntero a N\-U\-L\-L y el número de palabras a 0. \end{DoxyCompactList}\item 
+void {\bf carga\-Traductor} (ifstream \&f)
+\begin{DoxyCompactList}\small\item\em Realiza la carga del traductor a través de un flujo de un fichero abierto. \end{DoxyCompactList}\item 
+int {\bf get\-Numero\-Palabras} ()
+\begin{DoxyCompactList}\small\item\em Devuelve el número de palabras que el traductor contiene. \end{DoxyCompactList}\item 
+vector$<$ string $>$ {\bf get\-Traducciones} (string palabra\-Buscada)
+\begin{DoxyCompactList}\small\item\em Para conocer la o las traducciones de una palabra que esté en el diccionario. \end{DoxyCompactList}\item 
+string {\bfseries get\-Traduccion} (string frase)\label{classTraductor_a04031bba25ffd393933af00c06cb312d}
+
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf add\-Palabra} ({\bf Palabra} nueva\-Palabra)
+\begin{DoxyCompactList}\small\item\em Para añadir una nueva palabra al traductor. \end{DoxyCompactList}\item 
+void {\bf split} (string linea, string $\ast$\&vector, int \&{\bf num\-Palabras}, char simbolo\-De\-Seperacion)
+\begin{DoxyCompactList}\small\item\em Función auxiliar para dividir una cadena de texto según el separador \char`\"{};\char`\"{}, necesaria para leer los ficheros fuentes de palabras. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Palabra} $\ast$ {\bfseries palabras}\label{classTraductor_a3031b1a8804fd5ed5a25e6363034a199}
+
+\item 
+int {\bf num\-Palabras}
+\end{DoxyCompactItemize}
+\subsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+ifstream \& {\bfseries operator$>$$>$} (ifstream \&is, {\bf Traductor} \&t)\label{classTraductor_acafcfc537c7749b1fa25104ba2ed7e9f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+T.\-D.\-A. \doxyref{Traductor}{p.}{classTraductor}. 
+
+Una instancia {\itshape t} del tipo de datos abstracto {\ttfamily \doxyref{Traductor}{p.}{classTraductor}} es un objeto que representa un cojunto de objetos de tipo \doxyref{Palabra}{p.}{classPalabra} que conforman un traductor. Entonces un objeto de este tipo ofrece no sólo la instancia sino la interfaz de uso gracias a sus métodos para por ejemplo, ver la traducciones de una de sus palabras contenida.
+
+Un ejemplo de su uso\-: 
+\begin{DoxyCodeInclude}
+
+\textcolor{preprocessor}{#include "Traductor.h"}
+\textcolor{preprocessor}{#include <fstream>}
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{keyword}{using namespace }std;
+
+\textcolor{keywordtype}{void} traducePalabra(Traductor t, \textcolor{keywordtype}{string} palabra)\{
+
+  vector<string> trads=t.getTraducciones(palabra);
+
+  \textcolor{keywordflow}{if}(trads.size()!=0)\{
+
+    \textcolor{comment}{// Escrbimos}
+    cout<<palabra<<\textcolor{stringliteral}{" --> "};
+
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i=0;i<trads.size(); ++i)
+      cout<<trads[i]<<\textcolor{stringliteral}{" ; "};
+
+    cout<<endl;
+
+  \}\textcolor{keywordflow}{else}\{
+    cout << \textcolor{stringliteral}{"Oups! Palabra "} <<\textcolor{stringliteral}{"\(\backslash\)""}<<palabra<<\textcolor{stringliteral}{"\(\backslash\)""}<< \textcolor{stringliteral}{" no encontrada en el diccionario."} << endl;
+
+  \}
+\};
+
+\textcolor{keywordtype}{void} traduceFrase(Traductor t, \textcolor{keywordtype}{string} frase)\{
+  cout << t.getTraduccion(frase) << endl;
+\};
+
+
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} * argv[])\{
+
+  \textcolor{keywordflow}{if} (argc!=2)\{
+      cout<<\textcolor{stringliteral}{"Dime el nombre del fichero con las traducciones"}<<endl;
+      \textcolor{keywordflow}{return} 0;
+   \}
+
+   ifstream f (argv[1]);
+   \textcolor{keywordflow}{if} (!f)\{
+    cout<<\textcolor{stringliteral}{"No puedo abrir el fichero "}<<argv[1]<<endl;
+    \textcolor{keywordflow}{return} 0;
+   \}
+
+   Traductor t;
+   \textcolor{comment}{//t.cargaTraductor(f);}
+   f>>t; \textcolor{comment}{//Cargamos en memoria, en el traductor.}
+   cout << \textcolor{stringliteral}{"Usando "} << argv[1] << endl;
+   cout << \textcolor{stringliteral}{"Num palabras cargadas: "} << t.getNumeroPalabras() << endl;
+
+
+
+   \textcolor{keywordtype}{string} a;
+   \textcolor{keywordtype}{bool} esUnaPalabra=\textcolor{keyword}{false};
+   \textcolor{keywordtype}{bool} esUnaFrase=\textcolor{keyword}{false};
+
+
+   \textcolor{comment}{//Bucle infinito del programa:}
+   \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{
+
+     esUnaPalabra=esUnaFrase=\textcolor{keyword}{false};
+
+     cout<<\textcolor{stringliteral}{"Dime una palabra o frase en el idioma origen (Crtl+C para salir): "};
+     getline(cin,a);
+     \textcolor{comment}{//Busca si la cadena introducida contiene espacios en blanco.}
+     \textcolor{keywordtype}{int} spac = a.find(\textcolor{stringliteral}{" "} , 0);
+
+     \textcolor{comment}{//Si no tiene (no se encuentra " ") se trata de una palabra.}
+     \textcolor{keywordflow}{if}(spac==-1)
+      esUnaPalabra=\textcolor{keyword}{true};
+     \textcolor{keywordflow}{else}
+      \textcolor{comment}{//Si se encuentran es una frase.}
+      esUnaFrase=\textcolor{keyword}{true};
+
+     \textcolor{comment}{//Dependiendo del resultado se procesa de una u otra manera.}
+     \textcolor{keywordflow}{if}(esUnaPalabra)
+      traducePalabra(t, a);
+
+     \textcolor{keywordflow}{if}(esUnaFrase)
+      traduceFrase(t, a);
+
+  \}
+
+\}
+\end{DoxyCodeInclude}
+
+
+\begin{DoxyAuthor}{Autor}
+Juan A. Fernández 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Fecha}
+Octuble 2015 
+\end{DoxyDate}
+
+
+Definición en la línea 33 del archivo Traductor.\-h.
+
+
+
+\subsection{Documentación de las funciones miembro}
+\index{Traductor@{Traductor}!add\-Palabra@{add\-Palabra}}
+\index{add\-Palabra@{add\-Palabra}!Traductor@{Traductor}}
+\subsubsection[{add\-Palabra}]{\setlength{\rightskip}{0pt plus 5cm}void Traductor\-::add\-Palabra (
+\begin{DoxyParamCaption}
+\item[{{\bf Palabra}}]{nueva\-Palabra}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classTraductor_a927e70a061b954e22e9f02f7e3ca38bb}
+
+
+Para añadir una nueva palabra al traductor. 
+
+Contador del número de palabras que contiene el traductor. 
+\begin{DoxyParams}{Parámetros}
+{\em nueva\-Palabra} & \doxyref{Palabra}{p.}{classPalabra} a añadir al traductor. \\
+\hline
+\end{DoxyParams}
+\index{Traductor@{Traductor}!carga\-Traductor@{carga\-Traductor}}
+\index{carga\-Traductor@{carga\-Traductor}!Traductor@{Traductor}}
+\subsubsection[{carga\-Traductor}]{\setlength{\rightskip}{0pt plus 5cm}void Traductor\-::carga\-Traductor (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{f}
+\end{DoxyParamCaption}
+)}\label{classTraductor_ae48ccde85eb81d3daa4db401b08ac8d8}
+
+
+Realiza la carga del traductor a través de un flujo de un fichero abierto. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em f} & Flujo de stream de un fichero previamente abierto. \\
+\hline
+\end{DoxyParams}
+\index{Traductor@{Traductor}!get\-Numero\-Palabras@{get\-Numero\-Palabras}}
+\index{get\-Numero\-Palabras@{get\-Numero\-Palabras}!Traductor@{Traductor}}
+\subsubsection[{get\-Numero\-Palabras}]{\setlength{\rightskip}{0pt plus 5cm}int Traductor\-::get\-Numero\-Palabras (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTraductor_aa77fe0623d30081c6f54548e006ee2f1}
+
+
+Devuelve el número de palabras que el traductor contiene. 
+
+\begin{DoxyReturn}{Devuelve}
+Entero, número de palabras que el traductor contiene. 
+\end{DoxyReturn}
+\index{Traductor@{Traductor}!get\-Traducciones@{get\-Traducciones}}
+\index{get\-Traducciones@{get\-Traducciones}!Traductor@{Traductor}}
+\subsubsection[{get\-Traducciones}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ Traductor\-::get\-Traducciones (
+\begin{DoxyParamCaption}
+\item[{string}]{palabra\-Buscada}
+\end{DoxyParamCaption}
+)}\label{classTraductor_a81468e7956bd098c8bac489bd374b31c}
+
+
+Para conocer la o las traducciones de una palabra que esté en el diccionario. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em palabra\-Buscada} & \doxyref{Palabra}{p.}{classPalabra} de la que queremos conocer sus traducciones. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve un vector con las palabras encontradas que son traducción de la pasada o un vector vacío en el caso de no encontrarla. 
+\end{DoxyReturn}
+\index{Traductor@{Traductor}!split@{split}}
+\index{split@{split}!Traductor@{Traductor}}
+\subsubsection[{split}]{\setlength{\rightskip}{0pt plus 5cm}void Traductor\-::split (
+\begin{DoxyParamCaption}
+\item[{string}]{linea, }
+\item[{string $\ast$\&}]{vector, }
+\item[{int \&}]{num\-Palabras, }
+\item[{char}]{simbolo\-De\-Seperacion}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classTraductor_af6e75f7bd93eb4e8b69afa20cbc5ad00}
+
+
+Función auxiliar para dividir una cadena de texto según el separador \char`\"{};\char`\"{}, necesaria para leer los ficheros fuentes de palabras. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em linea} & Linea de texto que posee las palabras divididas por el símbolo \char`\"{};\char`\"{} \\
+\hline
+{\em vector} & Referencia al vector donde se van a guardar las palabras obtenidas. \\
+\hline
+{\em num\-Palabras} & Referencia al entero donde alamcenar el número de palabras extraidas. \\
+\hline
+{\em simbolo\-De\-Seperacion} & Simbolo que se interpretará como token de fragmentación de la cadena. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentación de los datos miembro}
+\index{Traductor@{Traductor}!num\-Palabras@{num\-Palabras}}
+\index{num\-Palabras@{num\-Palabras}!Traductor@{Traductor}}
+\subsubsection[{num\-Palabras}]{\setlength{\rightskip}{0pt plus 5cm}int Traductor\-::num\-Palabras\hspace{0.3cm}{\ttfamily [private]}}\label{classTraductor_a9b331936e99039f1f9073d3de0021149}
+Puntero al conjunto de palabras que forman el traductor. 
+
+Definición en la línea 53 del archivo Traductor.\-h.
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\-:\begin{DoxyCompactItemize}
+\item 
+include/{\bf Traductor.\-h}\end{DoxyCompactItemize}

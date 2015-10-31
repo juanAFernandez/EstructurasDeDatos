@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Traductor simple: Tranductor Simple V1.0</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Traductor simple
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li class="current"><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('index.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Tranductor Simple V1.0 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Es un pequeño traductor que ofrece una pequeña interfaz para la traducción de palabras y frases. Su implementación se basa en el desarrollo de dos tipos de datos abstractos, <a class="el" href="classPalabra.html" title="T.D.A. Palabra. ">Palabra</a> y <a class="el" href="classTraductor.html" title="T.D.A. Traductor. ">Traductor</a>. La fuente de información de traducciones se proporciona al programa en su ejecución y será un fichero escrito en formato estilo CSV (donde las palabras están separadas por ; y cada linea conforma una entidad palabra en idioma origen seguida de palabras en idioma destino) con un formato similar a este:</p>
+<p>entender;understand;realize;</p>
+<p>Aunque en sí el centro lógico está en <a class="el" href="classTraductor.html" title="T.D.A. Traductor. ">Traductor</a> podemos ver el bucle infinito para interactuar con el usuario donde se ve el uso del traductor en pruebatraductor.cpp</p>
+<div class="fragment"><div class="line"></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="Traductor_8h.html">Traductor.h</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="keyword">using namespace </span>std;</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> traducePalabra(<a class="code" href="classTraductor.html">Traductor</a> t, <span class="keywordtype">string</span> palabra){</div>
+<div class="line"></div>
+<div class="line">  vector&lt;string&gt; trads=t.<a class="code" href="classTraductor.html#a81468e7956bd098c8bac489bd374b31c">getTraducciones</a>(palabra);</div>
+<div class="line"></div>
+<div class="line">  <span class="keywordflow">if</span>(trads.size()!=0){</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// Escrbimos</span></div>
+<div class="line">    cout&lt;&lt;palabra&lt;&lt;<span class="stringliteral">&quot; --&gt; &quot;</span>;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i=0;i&lt;trads.size(); ++i)</div>
+<div class="line">      cout&lt;&lt;trads[i]&lt;&lt;<span class="stringliteral">&quot; ; &quot;</span>;</div>
+<div class="line"></div>
+<div class="line">    cout&lt;&lt;endl;</div>
+<div class="line"></div>
+<div class="line">  }<span class="keywordflow">else</span>{</div>
+<div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;Oups! Palabra &quot;</span> &lt;&lt;<span class="stringliteral">&quot;\&quot;&quot;</span>&lt;&lt;palabra&lt;&lt;<span class="stringliteral">&quot;\&quot;&quot;</span>&lt;&lt; <span class="stringliteral">&quot; no encontrada en el diccionario.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"></div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> traduceFrase(<a class="code" href="classTraductor.html">Traductor</a> t, <span class="keywordtype">string</span> frase){</div>
+<div class="line">  cout &lt;&lt; t.getTraduccion(frase) &lt;&lt; endl;</div>
+<div class="line">};</div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> * argv[]){</div>
+<div class="line"></div>
+<div class="line">  <span class="keywordflow">if</span> (argc!=2){</div>
+<div class="line">      cout&lt;&lt;<span class="stringliteral">&quot;Dime el nombre del fichero con las traducciones&quot;</span>&lt;&lt;endl;</div>
+<div class="line">      <span class="keywordflow">return</span> 0;</div>
+<div class="line">   }</div>
+<div class="line"></div>
+<div class="line">   ifstream f (argv[1]);</div>
+<div class="line">   <span class="keywordflow">if</span> (!f){</div>
+<div class="line">    cout&lt;&lt;<span class="stringliteral">&quot;No puedo abrir el fichero &quot;</span>&lt;&lt;argv[1]&lt;&lt;endl;</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">   }</div>
+<div class="line"></div>
+<div class="line">   <a class="code" href="classTraductor.html">Traductor</a> t;</div>
+<div class="line">   <span class="comment">//t.cargaTraductor(f);</span></div>
+<div class="line">   f&gt;&gt;t; <span class="comment">//Cargamos en memoria, en el traductor.</span></div>
+<div class="line">   cout &lt;&lt; <span class="stringliteral">&quot;Usando &quot;</span> &lt;&lt; argv[1] &lt;&lt; endl;</div>
+<div class="line">   cout &lt;&lt; <span class="stringliteral">&quot;Num palabras cargadas: &quot;</span> &lt;&lt; t.<a class="code" href="classTraductor.html#aa77fe0623d30081c6f54548e006ee2f1">getNumeroPalabras</a>() &lt;&lt; endl;</div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line">   <span class="keywordtype">string</span> a;</div>
+<div class="line">   <span class="keywordtype">bool</span> esUnaPalabra=<span class="keyword">false</span>;</div>
+<div class="line">   <span class="keywordtype">bool</span> esUnaFrase=<span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line">   <span class="comment">//Bucle infinito del programa:</span></div>
+<div class="line">   <span class="keywordflow">while</span>(<span class="keyword">true</span>){</div>
+<div class="line"></div>
+<div class="line">     esUnaPalabra=esUnaFrase=<span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">     cout&lt;&lt;<span class="stringliteral">&quot;Dime una palabra o frase en el idioma origen (Crtl+C para salir): &quot;</span>;</div>
+<div class="line">     getline(cin,a);</div>
+<div class="line">     <span class="comment">//Busca si la cadena introducida contiene espacios en blanco.</span></div>
+<div class="line">     <span class="keywordtype">int</span> spac = a.find(<span class="stringliteral">&quot; &quot;</span> , 0);</div>
+<div class="line"></div>
+<div class="line">     <span class="comment">//Si no tiene (no se encuentra &quot; &quot;) se trata de una palabra.</span></div>
+<div class="line">     <span class="keywordflow">if</span>(spac==-1)</div>
+<div class="line">      esUnaPalabra=<span class="keyword">true</span>;</div>
+<div class="line">     <span class="keywordflow">else</span></div>
+<div class="line">      <span class="comment">//Si se encuentran es una frase.</span></div>
+<div class="line">      esUnaFrase=<span class="keyword">true</span>;</div>
+<div class="line"></div>
+<div class="line">     <span class="comment">//Dependiendo del resultado se procesa de una u otra manera.</span></div>
+<div class="line">     <span class="keywordflow">if</span>(esUnaPalabra)</div>
+<div class="line">      traducePalabra(t, a);</div>
+<div class="line"></div>
+<div class="line">     <span class="keywordflow">if</span>(esUnaFrase)</div>
+<div class="line">      traduceFrase(t, a);</div>
+<div class="line"></div>
+<div class="line">  }</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <p><br/>
+</p>
+<p>En la implementación se ha optador por relalizar la gestión de memoria en algunos casos y en otros usar vector de la STL aunque podría haberse realizado con cualquiera de las dos opciones, ya que se trata de un problema muy sencillo. </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>

@@ -1,0 +1,187 @@
+\section{Referencia de la Clase Palabra}
+\label{classPalabra}\index{Palabra@{Palabra}}
+
+
+T.\-D.\-A. \doxyref{Palabra}{p.}{classPalabra}.  
+
+
+
+
+{\ttfamily \#include $<$Palabra.\-h$>$}
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Palabra} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto de la clase. Crea una palabra con el vector de destinos inicializado a 0. \end{DoxyCompactList}\item 
+void {\bf set\-Palabra\-Origen} (string nueva\-Palabra\-Origen)
+\begin{DoxyCompactList}\small\item\em Guarda el string pasado como palabra en el idioma origen del objeto. \end{DoxyCompactList}\item 
+string {\bf get\-Palabra\-Origen} ()
+\begin{DoxyCompactList}\small\item\em Devuelve la palabra que el objeto tiene guardada como palabra en el idioma origen. \end{DoxyCompactList}\item 
+void {\bf add\-Palabra\-Destino} (string nueva\-Palabra\-Destino)
+\begin{DoxyCompactList}\small\item\em Añade una palabra al conjunto de palabras destino que son traducciones para la palabra origen. \end{DoxyCompactList}\item 
+vector$<$ string $>$ {\bf get\-Palabras\-Destino} ()
+\begin{DoxyCompactList}\small\item\em Devuelve el conjunto de las palabras destino, traducciones de la palabra almacenada en idioma origen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+string {\bfseries palabra\-Origen}\label{classPalabra_a606555ac42fabb5fe3d8b58b7466c1d9}
+
+\item 
+string $\ast$ {\bf palabras\-Destino}
+\item 
+int {\bf num\-Palabras\-Destino}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+T.\-D.\-A. \doxyref{Palabra}{p.}{classPalabra}. 
+
+Una instancia {\itshape palabra} del tipo de datos abstracto {\ttfamily \doxyref{Palabra}{p.}{classPalabra}} es un objeto que representa una palabra junto a sus traducciones en unos determinados idiomas origen y destino. Este tipo de datos se representa con una palabra (origen) y un conjunto de palabras destino en un vector, donde todos los objetos son de tipo string.
+
+Un ejemplo de su uso\-: 
+\begin{DoxyCodeInclude}
+
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{preprocessor}{#include <Palabra.h>}
+\textcolor{preprocessor}{#include <string.h>}
+
+\textcolor{keyword}{using namespace }std;
+
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{void})\{
+
+  Palabra a;
+
+  a.setPalabraOrigen(\textcolor{stringliteral}{"Dog"});
+  cout << a.getPalabraOrigen() << \textcolor{stringliteral}{"\(\backslash\)n"};
+  a.addPalabraDestino(\textcolor{stringliteral}{"perrete"});
+  cout << a.getPalabrasDestino() << \textcolor{stringliteral}{"\(\backslash\)n"};
+  a.addPalabraDestino(\textcolor{stringliteral}{"chucho"});
+  cout << a.getPalabrasDestino() << \textcolor{stringliteral}{"\(\backslash\)n"};
+
+  \textcolor{comment}{/*}
+\textcolor{comment}{}
+\textcolor{comment}{  SALIDA:}
+\textcolor{comment}{}
+\textcolor{comment}{    > bin/usoPalabra}
+\textcolor{comment}{      Dog}
+\textcolor{comment}{      perrete}
+\textcolor{comment}{      perrete   chcucho}
+\textcolor{comment}{}
+\textcolor{comment}{  */}
+
+  \textcolor{keywordflow}{return} 0;
+
+\}
+\end{DoxyCodeInclude}
+
+
+\begin{DoxyAuthor}{Autor}
+Juan A. Fernández 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Fecha}
+Octuble 2015 
+\end{DoxyDate}
+
+
+Definición en la línea 32 del archivo Palabra.\-h.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\index{Palabra@{Palabra}!Palabra@{Palabra}}
+\index{Palabra@{Palabra}!Palabra@{Palabra}}
+\subsubsection[{Palabra}]{\setlength{\rightskip}{0pt plus 5cm}Palabra\-::\-Palabra (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPalabra_a8e74f02e148cdcb5bb91bc2ae193183e}
+
+
+Constructor por defecto de la clase. Crea una palabra con el vector de destinos inicializado a 0. 
+
+Número de palabras destino (traducciones) que la palabra origen tiene 
+
+\subsection{Documentación de las funciones miembro}
+\index{Palabra@{Palabra}!add\-Palabra\-Destino@{add\-Palabra\-Destino}}
+\index{add\-Palabra\-Destino@{add\-Palabra\-Destino}!Palabra@{Palabra}}
+\subsubsection[{add\-Palabra\-Destino}]{\setlength{\rightskip}{0pt plus 5cm}void Palabra\-::add\-Palabra\-Destino (
+\begin{DoxyParamCaption}
+\item[{string}]{nueva\-Palabra\-Destino}
+\end{DoxyParamCaption}
+)}\label{classPalabra_ace6585d9142cc3d424b4d2dfdd0d84b7}
+
+
+Añade una palabra al conjunto de palabras destino que son traducciones para la palabra origen. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em nueva\-Palabra\-Destino} & es un palabra en formato string, una traducción de la palabra origen que se añade al conjunto. \\
+\hline
+\end{DoxyParams}
+\index{Palabra@{Palabra}!get\-Palabra\-Origen@{get\-Palabra\-Origen}}
+\index{get\-Palabra\-Origen@{get\-Palabra\-Origen}!Palabra@{Palabra}}
+\subsubsection[{get\-Palabra\-Origen}]{\setlength{\rightskip}{0pt plus 5cm}string Palabra\-::get\-Palabra\-Origen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPalabra_a592db4c77b00c459bfd28902e5858127}
+
+
+Devuelve la palabra que el objeto tiene guardada como palabra en el idioma origen. 
+
+\begin{DoxyReturn}{Devuelve}
+Un string, que es la palabra origen. 
+\end{DoxyReturn}
+\index{Palabra@{Palabra}!get\-Palabras\-Destino@{get\-Palabras\-Destino}}
+\index{get\-Palabras\-Destino@{get\-Palabras\-Destino}!Palabra@{Palabra}}
+\subsubsection[{get\-Palabras\-Destino}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ Palabra\-::get\-Palabras\-Destino (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classPalabra_ad55676ec4a82883c210b4738b014a596}
+
+
+Devuelve el conjunto de las palabras destino, traducciones de la palabra almacenada en idioma origen. 
+
+\begin{DoxyReturn}{Devuelve}
+Un vector de string donde cada elemento es una palabra (traducción de la palabra origen). 
+\end{DoxyReturn}
+\index{Palabra@{Palabra}!set\-Palabra\-Origen@{set\-Palabra\-Origen}}
+\index{set\-Palabra\-Origen@{set\-Palabra\-Origen}!Palabra@{Palabra}}
+\subsubsection[{set\-Palabra\-Origen}]{\setlength{\rightskip}{0pt plus 5cm}void Palabra\-::set\-Palabra\-Origen (
+\begin{DoxyParamCaption}
+\item[{string}]{nueva\-Palabra\-Origen}
+\end{DoxyParamCaption}
+)}\label{classPalabra_a038e441d1518188a61c6502e7bda08e5}
+
+
+Guarda el string pasado como palabra en el idioma origen del objeto. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em nueva\-Palabra\-Origen} & es palabra que se almacenará como palabra en el idioma origen. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentación de los datos miembro}
+\index{Palabra@{Palabra}!num\-Palabras\-Destino@{num\-Palabras\-Destino}}
+\index{num\-Palabras\-Destino@{num\-Palabras\-Destino}!Palabra@{Palabra}}
+\subsubsection[{num\-Palabras\-Destino}]{\setlength{\rightskip}{0pt plus 5cm}int Palabra\-::num\-Palabras\-Destino\hspace{0.3cm}{\ttfamily [private]}}\label{classPalabra_ad221fc5592a353c5fc38fce175bc0cc1}
+Puntero que apunta a las traducciones de la palabra en el idioma origen 
+
+Definición en la línea 61 del archivo Palabra.\-h.
+
+\index{Palabra@{Palabra}!palabras\-Destino@{palabras\-Destino}}
+\index{palabras\-Destino@{palabras\-Destino}!Palabra@{Palabra}}
+\subsubsection[{palabras\-Destino}]{\setlength{\rightskip}{0pt plus 5cm}string$\ast$ Palabra\-::palabras\-Destino\hspace{0.3cm}{\ttfamily [private]}}\label{classPalabra_abbfe423891fd0b9ebf34481e0d4a03ba}
+\doxyref{Palabra}{p.}{classPalabra} Origen de la que se tienen las traducciones 
+
+Definición en la línea 60 del archivo Palabra.\-h.
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\-:\begin{DoxyCompactItemize}
+\item 
+include/{\bf Palabra.\-h}\end{DoxyCompactItemize}

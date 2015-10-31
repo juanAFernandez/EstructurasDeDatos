@@ -1,0 +1,4 @@
+Para compilar ejecutar: > make
+Para construir documentacion: > make documentacion
+Entrada a la documentación en doc/html/index.html
+Para correr traductor: > make runTraductor

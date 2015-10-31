@@ -1,0 +1,99 @@
+Es un pequeño traductor que ofrece una pequeña interfaz para la traducción de palabras y frases. Su implementación se basa en el desarrollo de dos tipos de datos abstractos, \doxyref{Palabra}{p.}{classPalabra} y \doxyref{Traductor}{p.}{classTraductor}. La fuente de información de traducciones se proporciona al programa en su ejecución y será un fichero escrito en formato estilo C\-S\-V (donde las palabras están separadas por ; y cada linea conforma una entidad palabra en idioma origen seguida de palabras en idioma destino) con un formato similar a este\-:
+
+entender;understand;realize;
+
+Aunque en sí el centro lógico está en \doxyref{Traductor}{p.}{classTraductor} podemos ver el bucle infinito para interactuar con el usuario donde se ve el uso del traductor en pruebatraductor.\-cpp
+
+
+\begin{DoxyCodeInclude}
+
+\textcolor{preprocessor}{#include "Traductor.h"}
+\textcolor{preprocessor}{#include <fstream>}
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{keyword}{using namespace }std;
+
+\textcolor{keywordtype}{void} traducePalabra(Traductor t, \textcolor{keywordtype}{string} palabra)\{
+
+  vector<string> trads=t.getTraducciones(palabra);
+
+  \textcolor{keywordflow}{if}(trads.size()!=0)\{
+
+    \textcolor{comment}{// Escrbimos}
+    cout<<palabra<<\textcolor{stringliteral}{" --> "};
+
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i=0;i<trads.size(); ++i)
+      cout<<trads[i]<<\textcolor{stringliteral}{" ; "};
+
+    cout<<endl;
+
+  \}\textcolor{keywordflow}{else}\{
+    cout << \textcolor{stringliteral}{"Oups! Palabra "} <<\textcolor{stringliteral}{"\(\backslash\)""}<<palabra<<\textcolor{stringliteral}{"\(\backslash\)""}<< \textcolor{stringliteral}{" no encontrada en el diccionario."} << endl;
+
+  \}
+\};
+
+\textcolor{keywordtype}{void} traduceFrase(Traductor t, \textcolor{keywordtype}{string} frase)\{
+  cout << t.getTraduccion(frase) << endl;
+\};
+
+
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} * argv[])\{
+
+  \textcolor{keywordflow}{if} (argc!=2)\{
+      cout<<\textcolor{stringliteral}{"Dime el nombre del fichero con las traducciones"}<<endl;
+      \textcolor{keywordflow}{return} 0;
+   \}
+
+   ifstream f (argv[1]);
+   \textcolor{keywordflow}{if} (!f)\{
+    cout<<\textcolor{stringliteral}{"No puedo abrir el fichero "}<<argv[1]<<endl;
+    \textcolor{keywordflow}{return} 0;
+   \}
+
+   Traductor t;
+   \textcolor{comment}{//t.cargaTraductor(f);}
+   f>>t; \textcolor{comment}{//Cargamos en memoria, en el traductor.}
+   cout << \textcolor{stringliteral}{"Usando "} << argv[1] << endl;
+   cout << \textcolor{stringliteral}{"Num palabras cargadas: "} << t.getNumeroPalabras() << endl;
+
+
+
+   \textcolor{keywordtype}{string} a;
+   \textcolor{keywordtype}{bool} esUnaPalabra=\textcolor{keyword}{false};
+   \textcolor{keywordtype}{bool} esUnaFrase=\textcolor{keyword}{false};
+
+
+   \textcolor{comment}{//Bucle infinito del programa:}
+   \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{
+
+     esUnaPalabra=esUnaFrase=\textcolor{keyword}{false};
+
+     cout<<\textcolor{stringliteral}{"Dime una palabra o frase en el idioma origen (Crtl+C para salir): "};
+     getline(cin,a);
+     \textcolor{comment}{//Busca si la cadena introducida contiene espacios en blanco.}
+     \textcolor{keywordtype}{int} spac = a.find(\textcolor{stringliteral}{" "} , 0);
+
+     \textcolor{comment}{//Si no tiene (no se encuentra " ") se trata de una palabra.}
+     \textcolor{keywordflow}{if}(spac==-1)
+      esUnaPalabra=\textcolor{keyword}{true};
+     \textcolor{keywordflow}{else}
+      \textcolor{comment}{//Si se encuentran es una frase.}
+      esUnaFrase=\textcolor{keyword}{true};
+
+     \textcolor{comment}{//Dependiendo del resultado se procesa de una u otra manera.}
+     \textcolor{keywordflow}{if}(esUnaPalabra)
+      traducePalabra(t, a);
+
+     \textcolor{keywordflow}{if}(esUnaFrase)
+      traduceFrase(t, a);
+
+  \}
+
+\}
+\end{DoxyCodeInclude}
+ 
+
+\par
+
+
+En la implementación se ha optador por relalizar la gestión de memoria en algunos casos y en otros usar vector de la S\-T\-L aunque podría haberse realizado con cualquiera de las dos opciones, ya que se trata de un problema muy sencillo. 
