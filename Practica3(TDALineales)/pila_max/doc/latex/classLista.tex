@@ -1,0 +1,182 @@
+\section{Referencia de la Clase Lista}
+\label{classLista}\index{Lista@{Lista}}
+
+
+T.\-D.\-A. \doxyref{Lista}{p.}{classLista}.  
+
+
+
+
+{\ttfamily \#include $<$Lista.\-h$>$}
+
+\subsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf Celda}
+\end{DoxyCompactItemize}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Lista} ()
+\begin{DoxyCompactList}\small\item\em Constuctor por defecto de la clase. Inicializa la lista con una celda sin dato y con el puntero a siguiente a null que representa el comienzo de la lista. Esta nueva celda no se contabiliza como elemento de la la lista y por tanto a efectos prácticos esta está vacía. Este elemento sólo aporta ventajas cara a la implementación. \end{DoxyCompactList}\item 
+void {\bf insertar\-Al\-Final} (int {\bf elemento})
+\begin{DoxyCompactList}\small\item\em Inserta un elemento al final de la lista. \end{DoxyCompactList}\item 
+void {\bf insertar\-Al\-Principio} (int {\bf elemento})
+\begin{DoxyCompactList}\small\item\em Inserta un elemento al principio de la lista. \end{DoxyCompactList}\item 
+int {\bf get\-Numero\-Elementos} ()
+\begin{DoxyCompactList}\small\item\em Para conocer el número de elementos que tiene la lista. \end{DoxyCompactList}\item 
+void {\bf imprime\-Lista} ()\label{classLista_a0e18270a6074f20156161fa30c3469a9}
+
+\begin{DoxyCompactList}\small\item\em Imprime por pantalla el contenido de la lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Celda} $\ast$ {\bf cabecera}
+\item 
+int {\bf num\-Elementos}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+T.\-D.\-A. \doxyref{Lista}{p.}{classLista}. 
+
+Una instancia {\itshape lista} del tipo de datos abstracto {\ttfamily \doxyref{Lista}{p.}{classLista}} es un objeto que representa un conjunto de elemento (datos) organizados secuencialmente a la que se pueden añadir, eliminar y modificar datos. Su implementación puede realizarse de muchas formas, aunque el comportamiento a alto nivel o uso debe ser siempre el mismo de forma abstracta. En este caso la implementación se ha realizado con celdas enlazadas con cabecera, usando como celda el tipo de dato {\itshape \doxyref{Celda}{p.}{structLista_1_1Celda}} declarado dentro de la propia clase \doxyref{Lista}{p.}{classLista}.
+
+
+
+Un ejemplo de su uso\-: 
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{preprocessor}{#include <Lista.h>}
+\textcolor{preprocessor}{#include <ListaT.h>}
+
+\textcolor{keyword}{using namespace }std;
+
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{void})\{
+
+  cout << \textcolor{stringliteral}{"\(\backslash\)n## Prueba lista y lista con templates ##\(\backslash\)n"} << endl;
+
+  \textcolor{comment}{//Creamos un objeto.}
+  Lista listaPrueba;
+  ListaT<int> listaPruebaT;
+
+  \textcolor{comment}{//Añadimos elementos tanto al final como al principio.}
+  \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<=10; ++i)\{
+    listaPrueba.insertarAlFinal(i);
+    listaPruebaT.insertarAlFinal(i);
+    listaPrueba.insertarAlPrincipio(i);
+    listaPruebaT.insertarAlPrincipio(i);
+  \}
+
+  \textcolor{comment}{//Imprimimos la lista}
+  cout << listaPrueba.getNumeroElementos() << \textcolor{stringliteral}{" elementos en la lista."} << endl;
+  cout << listaPruebaT.getNumeroElementos() << \textcolor{stringliteral}{" elementos en la lista."} << endl;
+  listaPrueba.imprimeLista();
+  listaPruebaT.imprimeLista();
+
+  ListaT<string> listaPruebaString;
+  listaPruebaString.insertarAlFinal(\textcolor{stringliteral}{"Hola"});
+  listaPruebaString.insertarAlFinal(\textcolor{stringliteral}{" soy una lista"});
+  listaPruebaString.insertarAlFinal(\textcolor{stringliteral}{" de String "});
+
+  listaPruebaString.imprimeLista();
+
+\}
+\end{DoxyCodeInclude}
+
+
+\begin{DoxyAuthor}{Autor}
+Juan A.\-Fernández 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Fecha}
+Noviembre 2015 
+\end{DoxyDate}
+
+
+Definición en la línea 33 del archivo Lista.\-h.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\index{Lista@{Lista}!Lista@{Lista}}
+\index{Lista@{Lista}!Lista@{Lista}}
+\subsubsection[{Lista}]{\setlength{\rightskip}{0pt plus 5cm}Lista\-::\-Lista (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLista_a1f668b36909182ef1360b48503529a31}
+
+
+Constuctor por defecto de la clase. Inicializa la lista con una celda sin dato y con el puntero a siguiente a null que representa el comienzo de la lista. Esta nueva celda no se contabiliza como elemento de la la lista y por tanto a efectos prácticos esta está vacía. Este elemento sólo aporta ventajas cara a la implementación. 
+
+Número de elemento dentro de la lista. 
+
+\subsection{Documentación de las funciones miembro}
+\index{Lista@{Lista}!get\-Numero\-Elementos@{get\-Numero\-Elementos}}
+\index{get\-Numero\-Elementos@{get\-Numero\-Elementos}!Lista@{Lista}}
+\subsubsection[{get\-Numero\-Elementos}]{\setlength{\rightskip}{0pt plus 5cm}int Lista\-::get\-Numero\-Elementos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLista_ad1335962d501aef607f63847b5a676cf}
+
+
+Para conocer el número de elementos que tiene la lista. 
+
+\begin{DoxyReturn}{Devuelve}
+Entero que indica el número de elementos que la lista tiene. 
+\end{DoxyReturn}
+\index{Lista@{Lista}!insertar\-Al\-Final@{insertar\-Al\-Final}}
+\index{insertar\-Al\-Final@{insertar\-Al\-Final}!Lista@{Lista}}
+\subsubsection[{insertar\-Al\-Final}]{\setlength{\rightskip}{0pt plus 5cm}void Lista\-::insertar\-Al\-Final (
+\begin{DoxyParamCaption}
+\item[{int}]{elemento}
+\end{DoxyParamCaption}
+)}\label{classLista_aa3b68fbd27e092434eb12b149c41ccc2}
+
+
+Inserta un elemento al final de la lista. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em elemento} & Elemento de tipo enetero que se quiere introducir al final de la lista. \\
+\hline
+\end{DoxyParams}
+\index{Lista@{Lista}!insertar\-Al\-Principio@{insertar\-Al\-Principio}}
+\index{insertar\-Al\-Principio@{insertar\-Al\-Principio}!Lista@{Lista}}
+\subsubsection[{insertar\-Al\-Principio}]{\setlength{\rightskip}{0pt plus 5cm}void Lista\-::insertar\-Al\-Principio (
+\begin{DoxyParamCaption}
+\item[{int}]{elemento}
+\end{DoxyParamCaption}
+)}\label{classLista_a0dc0ba1801803b54662ac6a7d00616aa}
+
+
+Inserta un elemento al principio de la lista. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em elemento} & Elemento de tipo entero que se quiere introducir al principio de la lista. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentación de los datos miembro}
+\index{Lista@{Lista}!cabecera@{cabecera}}
+\index{cabecera@{cabecera}!Lista@{Lista}}
+\subsubsection[{cabecera}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Celda}$\ast$ Lista\-::cabecera\hspace{0.3cm}{\ttfamily [private]}}\label{classLista_a3a8e4a0637c6c328a00acc4b186f34a2}
+Estructura de cada celda. 
+
+Definición en la línea 45 del archivo Lista.\-h.
+
+\index{Lista@{Lista}!num\-Elementos@{num\-Elementos}}
+\index{num\-Elementos@{num\-Elementos}!Lista@{Lista}}
+\subsubsection[{num\-Elementos}]{\setlength{\rightskip}{0pt plus 5cm}int Lista\-::num\-Elementos\hspace{0.3cm}{\ttfamily [private]}}\label{classLista_a104b67f34192361708ae5e4304e9bcb0}
+Puntero a la cabecera de la lista que no es un elemento válido dentro de ella sino un punto de contol de inicio. 
+
+Definición en la línea 48 del archivo Lista.\-h.
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\-:\begin{DoxyCompactItemize}
+\item 
+include/{\bf Lista.\-h}\end{DoxyCompactItemize}

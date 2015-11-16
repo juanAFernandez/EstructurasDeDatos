@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Pila_Max: Fichero Fuente include/Pila.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="stack.jpg"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Pila_Max
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('Pila_8h_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Pila.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Pila_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef __Pila_h__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __Pila_h__</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ListaT_8h.html">ListaT.h</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classPila.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPila.html">Pila</a>{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">//La implementación de la pila la vamos a realizar con una lista (que ya tenemos implementada con templates)</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classListaT.html">ListaT&lt;T&gt;</a>pila;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="comment">//Los método públicos son exactamente los mismo que hemos usado antes para las pilas de los tres tipos.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">    * @brief Para poner un elemento de tipo T encima de la pila.</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">    * @param valor Entero que se quiere poner en el top de la pila.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> poner(T <a class="code" href="structelemento.html">elemento</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    T <a class="code" href="classPila.html#a136c5e27ef8aaa5106b87e9dbae5c507">tope</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classPila.html#aa74bc3c698e94380d5f69bd24b910354">vacia</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">    * @brief Quita un elemento del tope de la pila.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> quitar();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classPila.html#af128cb52fbcbb9c2f4c29dc85b64d69e">getNumeroElementos</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Pila_8cpp.html">Pila.cpp</a>&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classPila_html_aa74bc3c698e94380d5f69bd24b910354"><div class="ttname"><a href="classPila.html#aa74bc3c698e94380d5f69bd24b910354">Pila::vacia</a></div><div class="ttdeci">bool vacia()</div><div class="ttdoc">Para conocer si la lista está vacía. </div><div class="ttdef"><b>Definition:</b> <a href="Pila_8cpp_source.html#l00023">Pila.cpp:23</a></div></div>
+<div class="ttc" id="ListaT_8h_html"><div class="ttname"><a href="ListaT_8h.html">ListaT.h</a></div><div class="ttdoc">Fichero cabecera del TDA ListaT (templates) </div></div>
+<div class="ttc" id="classPila_html"><div class="ttname"><a href="classPila.html">Pila</a></div><div class="ttdef"><b>Definition:</b> <a href="Pila_8h_source.html#l00013">Pila.h:13</a></div></div>
+<div class="ttc" id="classListaT_html"><div class="ttname"><a href="classListaT.html">ListaT</a></div><div class="ttdoc">T.D.A. ListaT. </div><div class="ttdef"><b>Definition:</b> <a href="ListaT_8h_source.html#l00032">ListaT.h:32</a></div></div>
+<div class="ttc" id="structelemento_html"><div class="ttname"><a href="structelemento.html">elemento</a></div><div class="ttdef"><b>Definition:</b> <a href="cola__max_8h_source.html#l00016">cola_max.h:16</a></div></div>
+<div class="ttc" id="Pila_8cpp_html"><div class="ttname"><a href="Pila_8cpp.html">Pila.cpp</a></div><div class="ttdoc">Fichero implementación del TDA Pila (templates) </div></div>
+<div class="ttc" id="classPila_html_a136c5e27ef8aaa5106b87e9dbae5c507"><div class="ttname"><a href="classPila.html#a136c5e27ef8aaa5106b87e9dbae5c507">Pila::tope</a></div><div class="ttdeci">T tope()</div><div class="ttdoc">Para cononcer el elemento del tope de la pila. </div><div class="ttdef"><b>Definition:</b> <a href="Pila_8cpp_source.html#l00018">Pila.cpp:18</a></div></div>
+<div class="ttc" id="classPila_html_af128cb52fbcbb9c2f4c29dc85b64d69e"><div class="ttname"><a href="classPila.html#af128cb52fbcbb9c2f4c29dc85b64d69e">Pila::getNumeroElementos</a></div><div class="ttdeci">int getNumeroElementos()</div><div class="ttdoc">Para conocer el número de elementos que tiene la pila. </div><div class="ttdef"><b>Definition:</b> <a href="Pila_8cpp_source.html#l00033">Pila.cpp:33</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>

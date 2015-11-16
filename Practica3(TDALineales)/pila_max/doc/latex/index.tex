@@ -1,0 +1,96 @@
+Este pequeño proyecto recopila varias implementaciones del tipo de dato \doxyref{Pila}{p.}{classPila} con Máximo. Con este tipo de dato se obtiene una pila de enteros en la que se guarda no solo el entero introducido sino el entero que en el momento de la insercción es el mayor de la \doxyref{Pila}{p.}{classPila}. Lo interesante del proyecto es que la implementación de lo que hay por debajo de este T\-D\-A se ha realizado usando varios tipos de estructuras\-: una lista (L\-I\-F\-O), un vector y una cola (F\-I\-F\-O). En el siguiente fichero puede verse una prueba de uso de cada uno de los tipos.
+
+
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{comment}{//Debería funcionar usando pila\_max p, pero no lo hace.}
+\textcolor{preprocessor}{#include "pila_max.h"}
+
+\textcolor{keyword}{using namespace }std;
+
+\textcolor{keywordtype}{int} main()\{
+
+  \textcolor{comment}{//Prueba de la implementación de pila con máx implementada con una lista.}
+  \textcolor{comment}{//pila\_max\_lista p;}
+
+  \textcolor{comment}{//Prueba de la implementación con un vector dinámico.}
+  \textcolor{comment}{//pila\_max\_vd p;}
+
+  \textcolor{comment}{//Prueba de la implementación con una cola.}
+  pila_max_cola p;
+
+  \textcolor{comment}{//int i;}
+
+  p.poner(5);
+  p.poner(10);
+  p.poner(3);
+  p.quitar();
+  p.poner(12);
+  p.poner(1);
+
+
+  \textcolor{keywordtype}{int} i=0;
+  \textcolor{keywordflow}{while} (!p.vacia() )\{
+    cout << \textcolor{stringliteral}{"paso "} << i;
+    i++;
+    elemento x = p.tope();
+    p.quitar();
+    cout << x << endl;
+  \}
+
+
+  \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCodeInclude}
+ 
+
+\par
+
+
+Además de esto se ha implementado el tipo de dato \doxyref{Cola}{p.}{classCola} con Máximo que viene a tener el mismo principio que la \doxyref{Pila}{p.}{classPila} anterior solo que esta vez la implementación se ha realizado con una \doxyref{Pila}{p.}{classPila}. Es decir, se ha tenido que realizar la implementación para que \doxyref{Lista}{p.}{classLista} funcione desde fuera como una \doxyref{Cola}{p.}{classCola}. Puede verse un ejemplo de ejecución en el siguiente fichero\-:
+
+
+\begin{DoxyCodeInclude}
+
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{preprocessor}{#include <cola_max.h>}
+\textcolor{keyword}{using namespace }std;
+
+\textcolor{comment}{//Programa de ejemplo del T.D.A. Cola con máximo, que funciona de forma similar a pila con máximo pero esta
+       vez se trata de}
+\textcolor{comment}{//una cola con máximo y debajo tiene implementada una pila.}
+
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{void})\{
+
+  \textcolor{comment}{//Declaramos una cola}
+  cola_max cola;
+
+  \textcolor{comment}{//Introducimos en la cola los valores 5,10,3,12 y 1.}
+  cola.poner(5);
+  cola.poner(10);
+  cola.poner(3);
+  cola.poner(12);
+  cola.poner(1);
+
+
+  \textcolor{keywordflow}{while} (!cola.vacia() )\{
+    elemento x = cola.inicio();
+    cola.quitar();
+    cout << x << \textcolor{stringliteral}{" "};
+  \}
+  cout << endl;
+
+  \textcolor{comment}{//Al ir extrayéndolos de la cola se debería ver por terminal la secuencia:}
+  \textcolor{comment}{//[5 | 5] [10 | 10] [3 | 10] [12 | 12] [1 | 12]}
+
+
+
+
+\}
+\end{DoxyCodeInclude}
+ 
+
+\par
+
+
+Todo el código de este proyecto es público en Git\-Hub en {\tt https\-://github.\-com/juan\-A\-Fernandez/\-Estructuras\-De\-Datos/tree/master/\-Practica3} 

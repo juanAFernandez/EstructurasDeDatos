@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Pila_Max: Fichero Fuente include/Lista.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="stack.jpg"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Pila_Max
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('Lista_8h_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Lista.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Lista_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef __Lista_h__</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __Lista_h__</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classLista.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLista.html">Lista</a>{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">//Estructura de cada una de las celdas de la lista</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structLista_1_1Celda.html">   38</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structLista_1_1Celda.html">Celda</a>{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="comment">//Elementos de la estructura:</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="keywordtype">int</span> <a class="code" href="structelemento.html">elemento</a>; <span class="comment">//Elemento que contiene la información, en este caso un entero.</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <a class="code" href="structLista_1_1Celda.html">Celda</a> * siguiente; <span class="comment">//Punto que apunta a la siguiente celda.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//Al tratarse de una lista construida con celdas enlazadas con cabecera lo primero que encontramos será la cabecera.</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classLista.html#a3a8e4a0637c6c328a00acc4b186f34a2">   45</a></span>&#160;    <a class="code" href="structLista_1_1Celda.html">Celda</a> * <a class="code" href="classLista.html#a3a8e4a0637c6c328a00acc4b186f34a2">cabecera</a>; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//Después tenemos el número de elementos.</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classLista.html#a104b67f34192361708ae5e4304e9bcb0">   48</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLista.html#a104b67f34192361708ae5e4304e9bcb0">numElementos</a>; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classLista.html#a1f668b36909182ef1360b48503529a31">Lista</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLista.html#aa3b68fbd27e092434eb12b149c41ccc2">insertarAlFinal</a>(<span class="keywordtype">int</span> <a class="code" href="structelemento.html">elemento</a>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLista.html#a0dc0ba1801803b54662ac6a7d00616aa">insertarAlPrincipio</a>(<span class="keywordtype">int</span> <a class="code" href="structelemento.html">elemento</a>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLista.html#ad1335962d501aef607f63847b5a676cf">getNumeroElementos</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLista.html#a0e18270a6074f20156161fa30c3469a9">imprimeLista</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classLista_html_ad1335962d501aef607f63847b5a676cf"><div class="ttname"><a href="classLista.html#ad1335962d501aef607f63847b5a676cf">Lista::getNumeroElementos</a></div><div class="ttdeci">int getNumeroElementos()</div><div class="ttdoc">Para conocer el número de elementos que tiene la lista. </div></div>
+<div class="ttc" id="structelemento_html"><div class="ttname"><a href="structelemento.html">elemento</a></div><div class="ttdef"><b>Definition:</b> <a href="cola__max_8h_source.html#l00016">cola_max.h:16</a></div></div>
+<div class="ttc" id="classLista_html_aa3b68fbd27e092434eb12b149c41ccc2"><div class="ttname"><a href="classLista.html#aa3b68fbd27e092434eb12b149c41ccc2">Lista::insertarAlFinal</a></div><div class="ttdeci">void insertarAlFinal(int elemento)</div><div class="ttdoc">Inserta un elemento al final de la lista. </div></div>
+<div class="ttc" id="classLista_html"><div class="ttname"><a href="classLista.html">Lista</a></div><div class="ttdoc">T.D.A. Lista. </div><div class="ttdef"><b>Definition:</b> <a href="Lista_8h_source.html#l00033">Lista.h:33</a></div></div>
+<div class="ttc" id="classLista_html_a1f668b36909182ef1360b48503529a31"><div class="ttname"><a href="classLista.html#a1f668b36909182ef1360b48503529a31">Lista::Lista</a></div><div class="ttdeci">Lista()</div><div class="ttdoc">Constuctor por defecto de la clase. Inicializa la lista con una celda sin dato y con el puntero a sig...</div></div>
+<div class="ttc" id="classLista_html_a3a8e4a0637c6c328a00acc4b186f34a2"><div class="ttname"><a href="classLista.html#a3a8e4a0637c6c328a00acc4b186f34a2">Lista::cabecera</a></div><div class="ttdeci">Celda * cabecera</div><div class="ttdef"><b>Definition:</b> <a href="Lista_8h_source.html#l00045">Lista.h:45</a></div></div>
+<div class="ttc" id="classLista_html_a104b67f34192361708ae5e4304e9bcb0"><div class="ttname"><a href="classLista.html#a104b67f34192361708ae5e4304e9bcb0">Lista::numElementos</a></div><div class="ttdeci">int numElementos</div><div class="ttdef"><b>Definition:</b> <a href="Lista_8h_source.html#l00048">Lista.h:48</a></div></div>
+<div class="ttc" id="classLista_html_a0dc0ba1801803b54662ac6a7d00616aa"><div class="ttname"><a href="classLista.html#a0dc0ba1801803b54662ac6a7d00616aa">Lista::insertarAlPrincipio</a></div><div class="ttdeci">void insertarAlPrincipio(int elemento)</div><div class="ttdoc">Inserta un elemento al principio de la lista. </div></div>
+<div class="ttc" id="structLista_1_1Celda_html"><div class="ttname"><a href="structLista_1_1Celda.html">Lista::Celda</a></div><div class="ttdef"><b>Definition:</b> <a href="Lista_8h_source.html#l00038">Lista.h:38</a></div></div>
+<div class="ttc" id="classLista_html_a0e18270a6074f20156161fa30c3469a9"><div class="ttname"><a href="classLista.html#a0e18270a6074f20156161fa30c3469a9">Lista::imprimeLista</a></div><div class="ttdeci">void imprimeLista()</div><div class="ttdoc">Imprime por pantalla el contenido de la lista. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>
