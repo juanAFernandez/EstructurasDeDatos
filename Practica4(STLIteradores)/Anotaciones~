@@ -1,0 +1,34 @@
+Si entregamos cuatro prácticas se quedarán con las tres mejores, en su defecto se quedarán con la nota
+que se saque entre las tres.
+
+############### Examen de prácticas: 17 de Diciembre #########
+Este examen cuenta 0.5 puntos sobre la nota global de la parte de prácticas.
+
+
+El examen será sobre las listas de la stl, con iteradores. Sobre todo crear nuevas listas a partir de otras.
+
+Algo como una lista que tenga mil numeros y se saquen los números primos. 
+Documentación que se puede utilizar:
+
+La página web de la asignatura o material impreso.
+
+
+Según la nota de las prácticas, saldrán a principio de Diciembre.
+
+
+
+###
+
+Esta práctica se entrega el 13 de Diciembre, cada una de estas prácticas vale un punto.
+
+###
+
+La práctica final vale 1.5 puntos.
+
+
+#### p4 ####
+
+Se trata de un traductor inverso.
+
+Palabra se puede implementar con un pair o con un multiset, mientras que traductor será un map. Muy parecida a la práctica dos
+pero usando estructuras más avanzadas de la STL.

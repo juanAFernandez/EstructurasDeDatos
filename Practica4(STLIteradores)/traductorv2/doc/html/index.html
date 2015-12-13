@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Traductor simple: Tranductor Simple V1.0</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Traductor simple
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li class="current"><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('index.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Tranductor Simple V1.0 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Es un pequeño traductor que ofrece una pequeña interfaz para la traducción de palabras y frases. Su implementación se basa en el desarrollo de dos tipos de datos abstractos, <a class="el" href="classPalabra.html" title="T.D.A. Palabra. ">Palabra</a> y <a class="el" href="classTraductor.html" title="T.D.A. Traductor. ">Traductor</a>. La fuente de información de traducciones se proporciona al programa en su ejecución y será un fichero escrito en formato estilo CSV (donde las palabras están separadas por ; y cada linea conforma una entidad palabra en idioma origen seguida de palabras en idioma destino) con un formato similar a este:</p>
+<p>entender;understand;realize;</p>
+<p>Aunque en sí el centro lógico está en <a class="el" href="classTraductor.html" title="T.D.A. Traductor. ">Traductor</a> podemos ver el bucle infinito para interactuar con el usuario donde se ve el uso del traductor en pruebatraductor.cpp</p>
+<div class="fragment"></div><!-- fragment --> <p><br/>
+</p>
+<p>En la implementación se ha optador por relalizar la gestión de memoria en algunos casos y en otros usar vector de la STL aunque podría haberse realizado con cualquiera de las dos opciones, ya que se trata de un problema muy sencillo. </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>
